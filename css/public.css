@@ -17,6 +17,17 @@ html{
 	margin: 0;
 	padding: 0;
 }
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.clearfix:after{
+	content: '';
+	display: block;
+	clear: both;
+}
 #header{
 	position: relative;
 	text-align: center;
@@ -64,14 +75,15 @@ html{
 	display: flex;
 }
 #footer>ul li{
+	font-size: 1.8rem;
+	height: 4rem;
+	line-height: 4rem;
 	text-align: center;
 	flex: 1;
 }
 #footer .acive{
 	color: red;
 }
-
-
 /*list-公用样式*/
 .menu-ul{	
 	margin-top: 1rem;

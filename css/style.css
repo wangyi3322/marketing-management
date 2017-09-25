@@ -37,11 +37,32 @@
 	background: #fff;
 }
 .index-abtou li{
-	font-size: 1.8rem;
-	height: 2.2rem;
-	line-height: 2.2rem;	
 	border-bottom: 1px solid #ddd;
 }
 .index-abtou li:last-child{
 	border: none;
-};
+}
+/*CDK兑换*/
+.tips{
+	padding: 0 .8rem;
+	line-height: 3rem;
+	font-size: 1.6rem;
+	color: #333;
+}
+.text-input{
+	border: none;
+	width: 100%;
+	line-height: 3rem;
+	height: 3rem;
+}
+.btn{
+	font-size: 2.2rem;
+	text-align: center;
+	display: block;
+	width: 80%;
+	margin: 2rem 10%;
+	color: #fff;
+	background: #EC453D;
+	height: 4rem;
+	line-height: 4rem;
+}
