@@ -1,0 +1,47 @@
+/*index start*/
+.user .infor{
+	margin-top: 2rem;
+}
+.main-content {
+	background: #ccc;
+	height: 30rem;
+}
+.main-content .user-info{
+	font-size: 1.6rem;
+	padding-top: 1rem;
+	text-align: center;
+}
+.main-content .user-lever{
+	color: #fff;
+	background: #D0B269;
+	border-radius: .5rem;
+	padding: .2rem .1rem;
+}
+.user-money{
+	margin: .5rem 0;
+	display: flex;
+}
+.user-money li{
+	flex: 1;
+	text-align: center;
+}
+.news{
+	font-size: 1.6rem;
+	margin-bottom: 2rem;
+	height: 2rem;
+	line-height: 2rem;
+	background: #fff;
+	text-indent: 1.8rem;
+}
+.index-abtou{
+	background: #fff;
+}
+.index-abtou li{
+	font-size: 1.8rem;
+	height: 2.2rem;
+	line-height: 2.2rem;	
+	border-bottom: 1px solid #ddd;
+}
+.index-abtou li:last-child{
+	border: none;
+};
