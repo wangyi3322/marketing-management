@@ -66,3 +66,26 @@
 	height: 4rem;
 	line-height: 4rem;
 }
+/*my-key*/
+.my-key-ct{
+	display: flex;	
+}
+.my-key-ct>li{
+	color: #666;
+	font-size: 2rem;
+	height: 2.6rem;
+	line-height: 2.6rem;
+	text-align: center;
+	flex: 1;	
+	background: #fff;
+}
+.key-list>li{
+	width: 96%;
+	margin: 0 2%;
+	background: #fff;
+}
+.key-list>li a{	
+	display: block;
+	height: 120px;
+	border: 1px solid #ccc;
+}
