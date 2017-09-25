@@ -3,11 +3,13 @@
 	margin-top: 2rem;
 }
 .main-content {
-	background: #ccc;
+	color: #fff;
 	height: 30rem;
+	background: url('../images/home_bg.png');
+	background-size: cover;
 }
 .main-content .user-info{
-	font-size: 1.6rem;
+	font-size: 3.4rem;
 	padding-top: 1rem;
 	text-align: center;
 }
@@ -81,11 +83,27 @@
 }
 .key-list>li{
 	width: 96%;
-	margin: 0 2%;
+	margin: 1rem 2%;
 	background: #fff;
+	border-radius: 1rem;
+	overflow: hidden;
 }
 .key-list>li a{	
 	display: block;
 	height: 120px;
 	border: 1px solid #ccc;
+	border-radius: 1rem;
+}
+.key-list>li .info{
+	padding: 0 1%;
+	color: #fff;
+	font-size: 1.8rem;
+	height: 2rem;
+	background: #D2B361;
+}
+.key-list>li .num{
+	margin: .8rem 0;
+}
+.key-list>li .key-num{
+	font-size: 2.2rem;
 }
