@@ -18,6 +18,29 @@ html{
 	padding: 0;
 }
 #header{
+	position: relative;
+	text-align: center;
+	height: 60px;
+	line-height: 60px;
+	font-size: 2.2rem;
+	color: #fff;
+	background: #000;
+}
+#header .left{
+	position: absolute;	
+	left: 0;
+	top: 0;
+}
+html{
+	font-family: Helvetica;
+	font-size: 62.5%;
+	color: #333;
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+#header{
 	text-align: center;
 	height: 45px;
 	line-height: 45px;
@@ -55,9 +78,9 @@ html{
 	background: #fff;
 }
 .menu-ul>li{
-	font-size: 1.6rem;
-	height: 3.5rem;
-	line-height: 3.5rem;
+	font-size: 1.8rem;
+	height: 4rem;
+	line-height: 4rem;
 	border-bottom: 1px solid #ddd;
 }
 .menu-ul>li:last-child{
