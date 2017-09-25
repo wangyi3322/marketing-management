@@ -13,13 +13,14 @@
 	padding-top: 1rem;
 	text-align: center;
 }
-.main-content .user-lever{
+.main-content .user-lever{ 
 	color: #fff;
 	background: #D0B269;
 	border-radius: .5rem;
 	padding: .2rem .1rem;
 }
 .user-money{
+	font-size: 2.2rem;
 	margin: .5rem 0;
 	display: flex;
 }
@@ -101,9 +102,21 @@
 	height: 2rem;
 	background: #D2B361;
 }
-.key-list>li .num{
-	margin: .8rem 0;
+.key-list>li .num{	
+	height: 8rem ;
+	line-height: 8rem;
+	padding:  0 1%;
 }
 .key-list>li .key-num{
 	font-size: 2.2rem;
+	vertical-align: middle;
+}
+.key-list>li .copy{
+	vertical-align: middle;
+	font-size: 1.6rem;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 5px;
+	border: 1px solid red;
+	color: red;
 }
