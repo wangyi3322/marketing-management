@@ -4,16 +4,17 @@
 }
 .main-content {
 	color: #fff;
-	height: 30rem;
+	height: 23.5rem;
 	background: url('../images/home_bg.png');
 	background-size: cover;
 }
 .main-content .user-info{
 	font-size: 2.7rem;
-	padding: 1rem 0 3rem 0;
+	padding: 2rem 0 3rem 0;
 	text-align: center;
 }
 .main-content .user-lever{ 
+	font-size: 14px;
 	color: #fff;
 	background: #D0B269;
 	border-radius: .5rem;
@@ -28,17 +29,36 @@
 	flex: 1;
 	text-align: center;
 }
+.user-money .title{
+	margin-bottom: 1.65rem;
+}
 .main-content .tips{
+	line-height: 4.2rem;
+	height: 4.2rem;
 	color: #fff;
 }
+.index-abtou .menu-ul{
+	padding: 0 1%;
+}
+.register-explain{
+	background:   url('../images/home_icon_register.png') no-repeat left center;
+	background-size: 2.4rem 2.4rem ;
+	padding-left: 2.8rem;
+}
+.money-explain{
+	background:   url('../images/home_icon_crj.png') no-repeat left center;
+	background-size: 2.4rem 2.4rem ;
+	padding-left: 2.8rem;
+}
 .news{
-	font-size: 1.6rem;
+	font-size: 1.7rem;
 	margin-bottom: 2rem;
-	height: 2rem;
-	line-height: 2rem;
+	height: 3rem;
+	line-height: 3rem;
 	background: #fff;
 	text-indent: 1.8rem;
 }
+
 .index-abtou{
 	background: #fff;
 }

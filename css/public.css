@@ -95,6 +95,9 @@ html{
 	line-height: 4rem;
 	border-bottom: 1px solid #ddd;
 }
+.menu-ul>li a{
+	display: block;
+}
 .menu-ul>li:last-child{
 	border: none;
 }
