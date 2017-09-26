@@ -115,3 +115,23 @@ html{
 .menu-ul>li:last-child{
 	border: none;
 }
+
+ 媒体查询，大于480px
+@media (max-width: 680px){
+	html{
+		font-size: 64%;
+	}
+}
+媒体查询，小于480px
+@media (max-width: 480px) {
+	html{
+		font-size: 61%;
+	}
+}
+媒体查询，小于360px
+@media (max-width: 360px) {
+	html{
+		font-size: 55%;
+	}
+}
+ 

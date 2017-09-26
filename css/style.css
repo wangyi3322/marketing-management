@@ -93,6 +93,9 @@
 	line-height: 4rem;
 }
 /*my-key*/
+.menu-ul{
+	padding: 1%;
+}
 .financial-control-ct .menu-ul li{
 	background:   url('../images/home_icon_register.png') no-repeat left center;
 	background-size: 2.4rem 2.4rem ;
