@@ -95,8 +95,22 @@ html{
 	line-height: 4rem;
 	border-bottom: 1px solid #ddd;
 }
-.menu-ul>li a{
+.menu-ul>li>a{
+	position: relative;
 	display: block;
+	vertical-align: middle;
+}
+.menu-ul>li>a span{	
+	line-height: 4rem;
+	vertical-align: middle;
+	position: absolute;
+	top: 0;
+	right: 3px;
+	display: block;
+	padding: 1rem 0;
+	background: url('../images/arrow_right.png') no-repeat center;
+	width: 2rem;
+	height: 2rem;
 }
 .menu-ul>li:last-child{
 	border: none;
