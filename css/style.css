@@ -210,3 +210,33 @@
 	line-height: 3.8rem;
 	height: 3.8rem;
 }
+/*重置密码*/
+
+.repassword-ct>ul li{
+	width: 100%;
+	margin-top: 1rem;
+	position: relative;
+}
+.repassword-ct>ul li div{
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-size: 1.8rem;
+	line-height: 4.4rem;
+	width: 6rem;
+	padding-left: 1%;
+}
+.repassword-ct>ul li p{
+	width: 100%;
+	height: 4.4rem;
+	background: #fff;
+	padding: 0 .2rem .2rem .2rem;
+}
+.repassword-ct>ul li input{
+	height: 4.4rem;
+	line-height: 4.4rem;
+	width: 100%;
+	border:none;
+	font-size: 1.8rem;
+	padding-left: 6rem;
+}
