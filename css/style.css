@@ -4,13 +4,12 @@
 }
 .main-content {
 	color: #fff;
-	height: 23.5rem;
 	background: url('../images/home_bg.png');
 	background-size: cover;
 }
 .main-content .user-info{
 	font-size: 2.7rem;
-	padding: 2rem 0 3rem 0;
+	padding: 2rem 0 2.6rem 0;
 	text-align: center;
 }
 .main-content .user-lever{ 
@@ -24,10 +23,27 @@
 	font-size: 2.2rem;
 	margin: .5rem 0 5rem 0;
 	display: flex;
+	align-items: center;
+}
+.user-money .title{
+	font-size: 2rem;
 }
 .user-money li{
 	flex: 1;
 	text-align: center;
+	border-right: 1px solid #57585d;
+}
+.user-money li .tx-btn{
+	border-radius: 20px;
+	background: #ec453d;
+	color: #fff;
+	width: 50%;
+	padding: 3% 0;
+	display: block;
+	margin: 0 auto;
+}
+.user-money li:last-child{	
+	border-right: 1px solid #none;
 }
 .user-money .title{
 	margin-bottom: 1.65rem;
@@ -91,7 +107,7 @@
 	height: 4rem;
 	line-height: 4rem;
 }
-/*my-key*/
+/*我的cdk my-key*/
 .menu-ul{
 	padding: 1%;
 }
