@@ -93,7 +93,7 @@ html{
 	font-size: 1.8rem;
 	height: 4rem;
 	line-height: 4rem;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid #ededed;
 }
 .menu-ul>li>a{
 	position: relative;
@@ -116,7 +116,7 @@ html{
 	border: none;
 }
 
- 媒体查询，大于480px
+/* 媒体查询，大于480px
 @media (max-width: 680px){
 	html{
 		font-size: 64%;
@@ -134,4 +134,4 @@ html{
 		font-size: 55%;
 	}
 }
- 
+ */

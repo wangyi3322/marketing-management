@@ -63,7 +63,7 @@
 	background: #fff;
 }
 .index-abtou li{
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid #ededed;
 }
 .index-abtou li:last-child{
 	border: none;
@@ -150,4 +150,19 @@
 	border-radius: 5px;
 	border: 1px solid red;
 	color: red;
+}
+/*注册说明*/
+.login-explain-ct,.news-explain-ct{
+	padding: 2rem 2%;
+	text-indent: 3.2rem;
+	font-size: 1.6rem;
+	line-height: 1.5;
+}
+.news-explain-ct .title,.news-explain-ct .date{
+	text-align: center;
+}
+.news-explain-ct .date{
+	color: #999;
+	font-size: 1.5rem;
+	padding: 1.7rem 0 1.8rem 0;
 }
