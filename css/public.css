@@ -78,8 +78,8 @@ html{
 	width: 30px;
 }*/
 #footer span{
-	height: 36px;
-	width: 36px;
+	height: 34px;
+	width: 34px;
 	display: inline-block;
 }
 #footer img{
@@ -107,9 +107,9 @@ html{
 	background: #fff;
 }
 .menu-ul>li{
-	font-size: 1.8rem;
-	height: 4rem;
-	line-height: 4rem;
+	font-size: 1.9rem;
+	height: 4.4rem;
+	line-height: 4.4rem;
 	border-bottom: 1px solid #ededed;
 }
 .menu-ul>li>a{
@@ -126,8 +126,8 @@ html{
 	display: block;
 	padding: 1rem 0;
 	background: url('../images/arrow_right.png') no-repeat center;
-	width: 2rem;
-	height: 2rem;
+	width: 1.8rem;
+	height: 1.8rem;
 }
 .menu-ul>li:last-child{
 	border: none;

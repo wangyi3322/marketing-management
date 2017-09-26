@@ -5,6 +5,7 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="css/public.css">
 	<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src='js/jquery-3.2.1.min.js'></script>
     <meta name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
@@ -21,7 +22,8 @@
 		<li>未使用</li>
 		<li>已使用</li>
 	</ul>
-	<ul class="key-list">
+	<div class="key-list-ct">
+		<ul class="key-list key-list-on">
 		<li>			
 			<p class="info clearfix">
 				<span class='title fl'>CDK</span>
@@ -53,7 +55,7 @@
 			</p>			
 		</li>	
 	</ul>
-	<ul class="key-list" style="display:none">
+	<ul class="key-list key-list-off" style="display:block">
 		<li>			
 			<p class="info clearfix">
 				<span class='title fl'>CDK</span>
@@ -61,7 +63,7 @@
 			</p>
 			<p class="num clearfix">
 				<span class='key-num '>FDAFJHADSJKHOIYHOI</span>
-				<span class='copy'>复制</span>
+				<p class="use-date">使用日期<span>2017-9-26 18:43:06</span></p>
 			</p>			
 		</li>
 		<li>			
@@ -85,6 +87,7 @@
 			</p>			
 		</li>	
 	</ul>	
+	</div>
 	<p style="height:80px;"></p>
 	<div id="footer">
 		<ul>
@@ -94,5 +97,12 @@
 			<li>我的</li>
 		</ul>
 	</div>
+
+<script type="text/javascript">
+	$('.my-key-ct li').click(function(){
+		var index = $(this).index();
+		console.log(index);
+	});
+</script>	
 </body>
 </html>
