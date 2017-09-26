@@ -67,12 +67,18 @@
 	padding-left: 2.8rem;
 }
 .news{
-	font-size: 1.7rem;
+	font-size: 1.8rem;
 	margin-bottom: 2rem;
 	height: 3.2rem;
 	line-height: 3.2rem;
 	background: #fff;
-	text-indent: 1.8rem;
+	padding: 0 1%
+}
+.news li a{
+	display: block;
+	background:   url('../images/home_icon_notice.png') no-repeat left center;
+	background-size: 1.8rem 1.8rem ;
+	padding-left: 2.8rem;
 }
 .index-abtou{
 	background: #fff;
