@@ -348,7 +348,7 @@
 .bazaar-ct>ul>li .more{
 	display: flex;
 	font-size: 1.4rem;
-
+	line-height: 1.4;
 }
 .bazaar-ct>ul>li .more li{
 	flex: 1;
