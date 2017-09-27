@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>首页</title>
+	<title>Document</title>
 	<link rel="stylesheet" href="css/public.css">
 	<link rel="stylesheet" href="css/style.css">
     <meta name="viewport"
@@ -10,48 +10,26 @@
 </head>
 <body>
 	<div id="header">
-		首页
-		<div class="left">
-			&nbsp;&nbsp;<
+		<span>用户中心</span>
+		<div class="left" onclick="javascript:history.go(-1);">
+			&nbsp;&nbsp;&nbsp;<
 		</div>
 		<div class="right">			
 		</div>
 	</div>
-	<div class="main-content">		
-		<div class="user-info">
-			<span class="user-name">
-				user-name
-			</span>
-			<span class="user-lever">
-				vip1
-			</span>
-		</div>
-		<ul class="user-money">
-			<li class="left">
-				<p class="title">累计金币</p>
-				<p>21.00</p>
-				</li>
-			<li class="content">
-				<p class="title">可用金币</p>
-				<p>21.00</p>
-			</li>
-			<li class="right"><a href="" class="tx-btn">提现</a></li>
-		</ul>	
-		<div class="index-tips">
-			提示：会员还有<span style='color:#ec453d;'>10天</span>到期
-			<a href="#" class="xf-btn">续费</a>
-		</div>	
-	</div>
-	<div class="news">
-		<li><a href="./news-explain.html">国庆放假通知</a></li>
-	</div>
-	<div class="index-abtou">
-		<ul class="menu-ul">
-			<li><a href="./login-explain.html" class="register-explain">注册说明<span class='right-icon'></span></a></li>
-			<li><a href="./login-explain.html" class="money-explain">出入金说明<span class='right-icon'></span></a></li>
+	<div class="repassword-ct">
+		<ul >
+			<li><div class="">用户名</div><input type="text" placeholder="请输入登录密码"></li>
+			<li><div class="">手机号</div><input type="text" placeholder="请输入8-16位数字及字母"></li>
+			<li><div class="">接受人</div><input type="text" placeholder="请再次输入登录密码"></li>
+			<li><div class="">接受市场</div><input type="text" placeholder="请再次输入登录密码"></li>
+			<li><div class="">激活码</div><input type="text" placeholder="请再次输入登录密码"></li>
 		</ul>
+		<div class="register-btn btn-ct">
+			<button>下一步</button>
+		</div>
+		
 	</div>
-	<p style="height:80px;"></p>
 	<div id="footer">
 		<ul>
 			<li class="acive">
