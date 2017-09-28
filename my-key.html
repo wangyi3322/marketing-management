@@ -19,74 +19,44 @@
 		</div>
 	</div>
 	<ul class="my-key-ct">
-		<li>未使用</li>
-		<li>已使用</li>
+		<li><p class="active">未使用</p></li>
+		<li><p>已使用</p></li>
 	</ul>
 	<div class="key-list-ct">
 		<ul class="key-list key-list-on">
+			<li>			
+				<p class="info clearfix">
+					<span class='title fl'>CDK</span>
+					<span class='date fr'>2017-9-25 </span>
+				</p>
+				<p class="num clearfix">
+					<span class='key-num'>FDAFJIFDAFJI</span>
+					<span class='copy'>复制</span>
+				</p>			
+			</li>
+			<li>			
+				<p class="info clearfix">
+					<span class='title fl'>CDK</span>
+					<span class='date fr'>2017-9-25 </span>
+				</p>
+				<p class="num clearfix">
+					<span class='key-num'>FDAFJIFDAFJI</span>
+					<span class='copy'>复制</span>
+				</p>			
+			</li>			
+		</ul>
+ 	<ul class="key-list key-list-off" style="display:none">
 		<li>			
 			<p class="info clearfix">
 				<span class='title fl'>CDK</span>
 				<span class='date fr'>2017-9-25 </span>
 			</p>
-			<p class="num clearfix">
-				<span class='key-num '>FDAFJHADSJKHOIYHOI</span>
-				<span class='copy'>复制</span>
-			</p>			
-		</li>
-		<li>			
-			<p class="info clearfix">
-				<span class='title fl'>CDK</span>
-				<span class='date fr'>2017-9-25 </span>
-			</p>
-			<p class="num clearfix">
-				<span class='key-num '>FDAFJHADSJKHOIYHOI</span>
-				<span class='copy'>复制</span>
-			</p>			
+			<div class="num clearfix">
+				<span class='key-num'>FDAFJIFDAFJICDK</span>
+				<p class="use-date">使用日期：<span>2017-9-28</span></p>
+			</div>			
 		</li>	
-		<li>			
-			<p class="info clearfix">
-				<span class='title fl'>CDK</span>
-				<span class='date fr'>2017-9-25 </span>
-			</p>
-			<p class="num clearfix">
-				<span class='key-num '>FDAFJHADSJKHOIYHOI</span>
-				<span class='copy'>复制</span>
-			</p>			
-		</li>	
-	</ul>
-	<ul class="key-list key-list-off" style="display:block">
-		<li>			
-			<p class="info clearfix">
-				<span class='title fl'>CDK</span>
-				<span class='date fr'>2017-9-25 </span>
-			</p>
-			<p class="num clearfix">
-				<span class='key-num '>FDAFJHADSJKHOIYHOI</span>
-				<p class="use-date">使用日期<span>2017-9-26 18:43:06</span></p>
-			</p>			
-		</li>
-		<li>			
-			<p class="info clearfix">
-				<span class='title fl'>CDK</span>
-				<span class='date fr'>2017-9-25 </span>
-			</p>
-			<p class="num clearfix">
-				<span class='key-num '>FDAFJHADSJKHOIYHOI</span>
-				<span class='copy'>复制</span>
-			</p>			
-		</li>	
-		<li>			
-			<p class="info clearfix">
-				<span class='title fl'>CDK</span>
-				<span class='date fr'>2017-9-25 </span>
-			</p>
-			<p class="num clearfix">
-				<span class='key-num '>FDAFJHADSJKHOIYHOI</span>
-				<span class='copy'>复制</span>
-			</p>			
-		</li>	
-	</ul>	
+	</ul>	 
 	</div>
 	<p style="height:80px;"></p>
 	<div id="footer">
@@ -113,8 +83,11 @@
 
 <script type="text/javascript">
 	$('.my-key-ct li').click(function(){
-		var index = $(this).index();
-		console.log(index);
+		var index = $(this).index();	
+		console.log($(this).siblings().text());			
+		$('.my-key-ct li').find('p').removeClass().eq(index).addClass('active');
+		$('.key-list-ct ul').eq(index).show().siblings('ul').hide();
+
 	});
 </script>	
 </body>
