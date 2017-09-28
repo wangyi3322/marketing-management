@@ -132,7 +132,7 @@
 }
 /*我的cdk my-key*/
 .menu-ul{
-	padding: 1%;
+	padding: 0 1%;
 }
 .financial-control-ct .menu-ul li{
 	background:   url('../images/home_icon_register.png') no-repeat left center;
@@ -216,6 +216,7 @@
 	width: 100%;
 	margin-top: 1rem;
 	position: relative;
+	box-sizing: border-box;
 }
 .repassword-ct>ul li div{
 	position: absolute;
@@ -239,6 +240,7 @@
 	border:none;
 	font-size: 1.8rem;
 	padding-left: 9.2rem;
+	box-sizing: border-box;
 }
 .btn-ct {
 	margin-top: 2rem;
@@ -354,4 +356,20 @@
 	flex: 1;
 	font-size: 14px;
 	color: #999;
+}
+/*新闻列表页*/
+.news-list-ct li{
+	background: #fff;
+	border-bottom: 1px solid #ddd;	
+	padding: 0.5rem 2rem;
+	line-height: 1.6;
+}
+.news-list-ct li p{
+	font-size: 1.6rem;
+}
+.news-list-ct li a{
+	display: block;
+}
+.news-list-ct li .date{
+	float: right;
 }
