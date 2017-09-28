@@ -132,7 +132,9 @@ html{
 .menu-ul>li:last-child{
 	border: none;
 }
-
+.b-c{
+	color: #ec453e;	
+}
 /* 媒体查询，大于480px
 @media (max-width: 680px){
 	html{

@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8be4431-0946-4e91-a18a-61bdef63e31e" name="Default" comment="Default">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bazaar.html" afterPath="$PROJECT_DIR$/bazaar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exchange-key.html" afterPath="$PROJECT_DIR$/exchange-key.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/financial-control.html" afterPath="$PROJECT_DIR$/financial-control.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-key.html" afterPath="$PROJECT_DIR$/my-key.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/register.html" afterPath="$PROJECT_DIR$/register.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,10 +16,11 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="746">
-              <caret line="67" column="26" lean-forward="true" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
+            <state relative-caret-position="499">
+              <caret line="33" column="31" lean-forward="true" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
               <folding>
-                <marker date="1506589007746" expanded="false" signature="1835:1847" ph="..." />
+                <marker date="1506593136330" expanded="false" signature="1402:1416" ph="..." />
+                <marker date="1506593136330" expanded="false" signature="1856:1868" ph="..." />
               </folding>
             </state>
           </provider>
@@ -57,7 +52,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="209" />
     <option name="y" value="337" />
     <option name="width" value="1583" />
@@ -220,12 +215,12 @@
       <workItem from="1506487700419" duration="57000" />
       <workItem from="1506568280910" duration="189000" />
       <workItem from="1506569367090" duration="346000" />
-      <workItem from="1506569879817" duration="3759000" />
+      <workItem from="1506569879817" duration="5623000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5274000" />
+    <option name="totallyTimeSpent" value="7138000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -237,7 +232,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14820676" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -313,7 +308,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1506589007746" expanded="false" signature="1835:1847" ph="..." />
+            <marker date="1506593136330" expanded="false" signature="1402:1416" ph="..." />
+            <marker date="1506593136330" expanded="false" signature="1856:1868" ph="..." />
           </folding>
         </state>
       </provider>
@@ -323,7 +319,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1506589007746" expanded="false" signature="1835:1847" ph="..." />
+            <marker date="1506593136330" expanded="false" signature="1402:1416" ph="..." />
+            <marker date="1506593136330" expanded="false" signature="1856:1868" ph="..." />
           </folding>
         </state>
       </provider>
@@ -333,7 +330,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1506589007746" expanded="false" signature="1835:1847" ph="..." />
+            <marker date="1506593136330" expanded="false" signature="1402:1416" ph="..." />
+            <marker date="1506593136330" expanded="false" signature="1856:1868" ph="..." />
           </folding>
         </state>
       </provider>
@@ -343,7 +341,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1506589007746" expanded="false" signature="1835:1847" ph="..." />
+            <marker date="1506593136330" expanded="false" signature="1402:1416" ph="..." />
+            <marker date="1506593136330" expanded="false" signature="1856:1868" ph="..." />
           </folding>
         </state>
       </provider>
@@ -353,7 +352,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1506589007746" expanded="false" signature="1835:1847" ph="..." />
+            <marker date="1506593136330" expanded="false" signature="1402:1416" ph="..." />
+            <marker date="1506593136330" expanded="false" signature="1856:1868" ph="..." />
           </folding>
         </state>
       </provider>
@@ -363,7 +363,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1506589007746" expanded="false" signature="1835:1847" ph="..." />
+            <marker date="1506593136330" expanded="false" signature="1402:1416" ph="..." />
+            <marker date="1506593136330" expanded="false" signature="1856:1868" ph="..." />
           </folding>
         </state>
       </provider>
@@ -385,10 +386,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="746">
-          <caret line="67" column="26" lean-forward="true" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
+        <state relative-caret-position="499">
+          <caret line="33" column="31" lean-forward="true" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
           <folding>
-            <marker date="1506589007746" expanded="false" signature="1835:1847" ph="..." />
+            <marker date="1506593136330" expanded="false" signature="1402:1416" ph="..." />
+            <marker date="1506593136330" expanded="false" signature="1856:1868" ph="..." />
           </folding>
         </state>
       </provider>

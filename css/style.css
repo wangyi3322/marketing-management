@@ -118,6 +118,8 @@
 	width: 100%;
 	line-height: 4.2rem;
 	height: 4.2rem;
+	font-size: 16px;
+	color: #333;
 }
 .btn{
 	font-size: 2.2rem;
@@ -224,7 +226,7 @@
 	font-size: 1.5rem;
 	padding: 1.7rem 0 1.8rem 0;
 }
-/*exchange-key-ct*/
+/*exchange-key-ct 提现金额 CDK*/
 .exchange-key-ct .tips{
 	color: #999;
 	line-height: 3.8rem;
@@ -235,6 +237,15 @@
 .exchange-key-ct input{
 	box-sizing: border-box;
 	padding: 0 1rem;
+}
+.exchange-tip{
+	text-align: center;
+	font-size: 14px;
+	margin-top: 1.1rem;
+	color: #999;
+}
+.exchange-tip span{
+	color: #ec453e;
 }
 /*重置密码*/
 
@@ -425,5 +436,4 @@
 .key-recode-ct .status{
 	text-align: center;
 	width: 10rem;
-
 }
