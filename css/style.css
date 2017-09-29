@@ -437,3 +437,31 @@
 	text-align: center;
 	width: 10rem;
 }
+
+/*list 背景*/
+.financial-control-ct .menu-ul li.my-cdk{
+	background: url('../images/finance_icon_jhm.png') no-repeat left center;
+	background-size: 2.6rem 2.6rem;
+    padding-left: 3.4rem; 
+}
+.financial-control-ct .menu-ul li.my-cdk-code{
+	background: url('../images/finance_icon_dhjl.png') no-repeat left center;
+	background-size: 2.6rem 2.6rem;
+    padding-left: 3.4rem; 
+}
+.financial-control-ct .menu-ul li.money-tq{
+	background: url('../images/finance_icon_jjtx.png') no-repeat left center;
+	background-size: 2.6rem 2.6rem;
+    padding-left: 3.4rem; 
+}
+.financial-control-ct .menu-ul li.money-tq-code{
+	background: url('../images/finance_icon_txjl.png') no-repeat left center;
+	background-size: 2.6rem 2.6rem;
+    padding-left: 3.4rem; 
+}
+.financial-control-ct .menu-ul li.money-more{
+	background: url('../images/finance_icon_jjmx.png') no-repeat left center;
+	background-size: 2.6rem 2.6rem;
+    padding-left: 3.4rem; 
+}
+

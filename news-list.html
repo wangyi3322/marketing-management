@@ -3,25 +3,22 @@
 <head>
 	<meta charset="UTF-8">
 	<title>首页</title>
-
-	<link rel="stylesheet" href="css/public.css">
-	<link rel="stylesheet" href="css/style.css">
     <meta name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<!--    <link rel="stylesheet" href="//cdn.bootcss.com/weui/1.1.1/style/weui.min.css">
-	<link rel="stylesheet" href="//cdn.bootcss.com/jquery-weui/1.0.1/css/jquery-weui.min.css">  -->
-<!-- 	<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
-<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script> -->
+	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="../style/weui.css"/>
+    <link rel="stylesheet" href="./example.css"/>
+
 <body>
-	<div id="header">
+<!-- 	<div id="header">
 		首页
 		<div class="left">
 			&nbsp;&nbsp;<
 		</div>
 		<div class="right">			
 		</div>
-	</div>
+	</div> -->
 	<div class="news-list-ct">
 		<ul>
 			<li>
@@ -45,27 +42,36 @@
 		</ul>
 	</div>
 	<p style="height:80px;"></p>
-	<div id="footer">
-		<ul>
-			<li class="acive">
-				<span><img src="./images/tab_home_n.png" alt=""></span>
-				<a href="./index.html">首页</a>
-			</li>
-			<li>
-				<span><img src="./images/tab_market_n.png" alt=""></span>
-				<a href="./bazaar.html">市场管理</a>
-			</li>
-			<li>
-				<span><img src="./images/tab_finance_n.png" alt=""></span>
-				<a href="./financial-control.html">财务管理</a>
-			</li>
+	<div id="footer-bar">
+		<a href="./index.html" class="footer-bar-item">
+			<span style="display: inline-block;position: relative;">
+				<img src="./images/tab_home_n.png" alt="">
+			</span>
+			<p class="footer-bar-label">首页</p>
+		</a>
+		<a href="./bazaar.html" class="footer-bar-item">
+			<span style="display: inline-block;position: relative;">
+				<img src="./images/tab_market_n.png" alt="">
+			</span>
+			<p class="footer-bar-label">市场管理</p>
+		</a>
+		<a href="./financial-control.html" class="footer-bar-item">
+			<span style="display: inline-block;position: relative;">
+				<img src="./images/tab_finance_n.png" alt="">
+			</span>
+			<p class="footer-bar-label">财务管理</p>
+		</a>
+		<a href="./user-home.html" class="footer-bar-item">
+			<span style="display:inline-block;position: relative;">
+				<img src="./images/tab_mine_n.png" alt="">
+			</span>
+			<p class="footer-bar-label">我的</p>
+		</a>
+	</div>	
 
-			<li>
-				<span><img src="./images/tab_mine_n.png" alt=""></span>
-				<a href="./user-home.html">我的</a>
-			</li>			
-		</ul>
-	</div>
-
+    <script src="./zepto.min.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
+    <script src="./example.js"></script>            
 </body>
 </html>

@@ -179,3 +179,45 @@ html{
 		width: 22px;
 	}
 }
+
+
+
+
+/*底部按钮 #footer-bar*/
+#footer-bar{
+	width: 100%;
+	position: fixed;
+	bottom: 0; 
+	display: flex;
+	background: #fff;
+	display: -webkit-box;
+    display: -webkit-flex;
+}
+#footer-bar:before{
+	content: '';
+	display: block;
+	position: absolute;
+	height: 1px;
+	width: 100%;
+/*	box-shadow: 0px -1px 1px rgba(0,0,0,0.05);*/
+	border-top: 1px solid #c0bfc4;
+	-webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+}
+#footer-bar span img{
+	width: 27px;
+	height: 27px;
+}
+#footer-bar p{
+	text-align: center;
+    color: #999;
+    font-size: 10px;
+    line-height: 1.8;
+}
+.footer-bar-item{
+	flex: 1;
+	padding: 5px 0 0;
+	font-size: 0;
+    color: #999999;
+    text-align: center;
+}
