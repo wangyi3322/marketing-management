@@ -231,7 +231,7 @@
 	color: #999;
 	line-height: 3.8rem;
 	height: 3.8rem;
-	font-size: 16px;
+	font-size: 14px;
 	padding: 0 1rem;
 }
 .exchange-key-ct input{
@@ -403,23 +403,33 @@
 	color: #999;
 }
 /*新闻列表页*/
+.news-list-ct{
+	margin-top: 1rem;
+}
 .news-list-ct li{
 	background: #fff;
 	border-bottom: 1px solid #ddd;	
-	padding: 0.5rem 2rem;
+	padding: 0.6rem 2rem;
 	line-height: 1.6;
 }
 .news-list-ct li p{
-	font-size: 1.6rem;
+	font-size: 12px;
+	line-height: 1.8;
 }
 .news-list-ct li a{
 	display: block;
+	color: #999;
+}
+.news-list-ct li .title{
+	font-size: 16px;
+	color: #333;
 }
 .news-list-ct li .date{
 	float: right;
 }
 /*兑换记录 key-recode-ct*/
 .key-recode-ct{
+	margin-top: 1rem;
 	background: #fff;
 	font-size: 1.6rem;
 }
@@ -433,9 +443,20 @@
 .key-recode-ct .info{
 	flex: 1;
 }
+.key-recode-ct .info .title{
+	font-size: 16px;
+	color: #333;
+	line-height: 2;
+}
+.key-recode-ct .info .date{
+	font-size: 12px;
+	color: #999;
+}
 .key-recode-ct .status{
 	text-align: center;
 	width: 10rem;
+	font-size: 15px;
+	color: #ec453e;	font-size: 15px;
 }
 
 /*list 背景*/
@@ -464,4 +485,33 @@
 	background-size: 2.6rem 2.6rem;
     padding-left: 3.4rem; 
 }
-
+/*用户信息完善 info-change-ct*/
+.info-change-ct>ul{
+	margin-top: 1rem;
+	background: #fff;
+	padding: 0 1.5rem;
+}
+.info-change-ct>ul li{
+	height: 4.4rem;
+	line-height: 4.4rem;	
+	font-size: 16px;
+	border-bottom: 1px solid #ddd;
+}
+.info-change-ct>ul li:last-child{
+	border-bottom: none;
+}
+.info-change-ct>ul>li .lable{
+	float: left;
+}
+.info-change-ct>ul>li .value{
+	float: right;
+	height: 100%;
+}
+.info-change-ct>ul>li .input-txt{
+	outline: none;
+	font-size: 16px;
+	border: none;
+	display: block;
+	height: 100%;
+	text-align: right;
+}
