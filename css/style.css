@@ -521,4 +521,23 @@
 	background: #fff;
 	font-size: 16px;
 	padding: 2rem 1rem;
+	text-align: center;
+}
+.money-recode-ct>.title span{
+	color: #ec453e;
+	font-size: 20px;
+}
+.money-recode-ct ul{
+	margin-top: 1rem;
+	background: #fff;
+	font-size: 16px;
+}
+.money-recode-ct ul li{
+	padding: 0 1.5rem;
+	border-bottom: 1px solid #ddd;
+	line-height: 6rem;
+}
+.money-recode-ct ul li .value{
+	font-size: 20px;
+	background: #ec453e;
 }
