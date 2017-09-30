@@ -525,7 +525,12 @@
 }
 .money-recode-ct>.title span{
 	color: #ec453e;
-	font-size: 20px;
+	font-size: 22px;
+}
+.money-recode-ct>.title .tips{
+	color: #999;
+	margin-top: 2rem;
+	font-size: 12px;
 }
 .money-recode-ct ul{
 	margin-top: 1rem;
@@ -539,5 +544,5 @@
 }
 .money-recode-ct ul li .value{
 	font-size: 20px;
-	background: #ec453e;
+	color: #ec453e;
 }
