@@ -515,3 +515,10 @@
 	height: 100%;
 	text-align: right;
 }
+
+/*money-recode-ct*/
+.money-recode-ct>.title{
+	background: #fff;
+	font-size: 16px;
+	padding: 2rem 1rem;
+}

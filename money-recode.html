@@ -2,30 +2,33 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>财务管理</title>
+	<title>兑换记录</title>
 	<link rel="stylesheet" href="css/public.css">
 	<link rel="stylesheet" href="css/style.css">
     <meta name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-</head>
 <body>
 <!-- 	<div id="header">
-		<span>市场管理</span>
-		<div class="left" onclick="javascript:history.go(-1);">
-			&nbsp;&nbsp;&nbsp;<
+		首页
+		<div class="left">
+			&nbsp;&nbsp;<
 		</div>
 		<div class="right">			
 		</div>
 	</div> -->
-	<div class="financial-control-ct">
-		<ul class="menu-ul key">
-			<li class="my-cdk"><a href="./my-key.html">我的激活码</a></li>
-			<li class="my-cdk-code"><a href="./key-recode.html">激活码兑换记录</a></li>
-		</ul>
-		<ul class="menu-ul ">
-			<li class="money-tq"><a href="./exchange-money.html">奖金提取</a></li>
-			<li class="money-tq-code"><a href="#">奖金提线记录</a></li>
-			<li class="money-more-list"><a href="#">奖金明细</a></li>
+	<div class="money-recode-ct">
+		<div class="title">
+			累计金币 <span class="num">200.00</span>
+		</div>
+		<ul>
+			<li class="clearfix">			
+				<p class='title fl'>兑换数量：2</p>
+				<p class="date fr">2017-9-28 15:04:11</p>	
+			</li>
+			<li class="clearfix">			
+				<p class='title fl'>兑换数量：2</p>
+				<p class="date fr">2017-9-28 15:04:11</p>	
+			</li>
 		</ul>
 	</div>
 <p style="height:80px;"></p>
@@ -55,20 +58,5 @@
 			<p class="footer-bar-label">我的</p>
 		</a>
 	</div>	
-
-
-
-
-<script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>	
-<script type="text/javascript">
-	$('.btn-ct a').click(function(){
-		$('.js-dialog').fadeIn('300');	
-		return false;
-	});
-
-	$('.btn-true,.btn-false').click(function(){
-		$('.js-dialog').fadeOut('300');
-	});
-</script>	
 </body>
 </html>
