@@ -221,3 +221,62 @@ html{
     color: #999999;
     text-align: center;
 }
+/*dialog*/
+.dialog-ct .dialog-mask{
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.3);
+}
+.dialog-ct .dialog{
+	position: fixed;
+	width: 80%;
+	max-height: 300px;
+	z-index: 1000;
+	top: 50%;
+	left: 50%;	
+	transform: translate(-50%, -50%);
+	background: #fff;
+	border-radius: 10px;
+	text-align: center;
+}
+.dialog-ct .dialog-bd{
+	font-size: 15px;
+	padding:  2.5rem 1rem;
+	line-height: 1.6;
+}
+.dialog-ft{
+	display: relative;
+	display: flex;
+	font-size: 18px;
+	line-height: 2;
+}
+.dialog-ft:after{
+	content: '';
+	display: block;
+	position: absolute;
+	height: 1px;
+	width: 100%;
+	background: #ddd;	
+	transform: scaleY(0.5);
+
+}
+.dialog-ft a{
+	flex: 1;
+	color: #007aff;
+	position: relative;
+}
+.btn-true:after{
+	content: '';
+	display: block;
+	position: absolute;
+	height: 100%;
+	width: 1px;
+	top: 0;
+	left: 0;
+	border-left: 1px solid #ccc;
+	transform: scaleX(0.5);
+}
