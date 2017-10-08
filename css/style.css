@@ -573,5 +573,34 @@
 	width: 100%;
 	height: 100%;
 	background: url('../images/finance_icon_dhjl.png') no-repeat center center;
-
+	background-size: 2.6rem 2.6rem;
+}
+.a-list{
+	padding: 0 2rem;
+	margin-top: 1rem;
+	font-size: 12px;
+	color: #333;
+}
+.label-checkbox{
+	position: absolute;
+	right: 2rem;
+	top: 0;
+	width: 2rem;
+	height: 100%;
+}
+.label-checkbox span{
+	display: inline-block;
+	line-height: 4.4rem;
+	width: 100%;
+	height: 100%;
+	background: url('../images/input_delate.png') no-repeat center center;
+	background-size: 2rem 2rem;
+}
+.yzm-box{
+	width: 100px;
+}
+.label-checkbox span.yzm{
+	width: 100%;
+	height: 100%;
+	background: #000;
 }
