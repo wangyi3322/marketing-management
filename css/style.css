@@ -639,6 +639,10 @@
 .yzm-box{
 	width: 100px;
 }
+.yzm-box img{
+	width: 100%;
+	height: 100%;
+}
 .label-checkbox span.yzm{
 	width: 100%;
 	height: 100%;
