@@ -280,3 +280,56 @@ html{
 	border-left: 1px solid #ccc;
 	transform: scaleX(0.5);
 }
+/*bottom-select*/
+.bottom-select-mask{
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+.bottom-select{
+	position: fixed;
+	z-index: 5000;	
+	left: 0;
+	bottom: 0;
+	background: #fff;
+	width: 100%;
+}
+.bottom-select .action{
+	height: 4.3rem;
+	line-height: 4.3rem;
+	font-size: 16px;
+	padding: 0 1.5rem;
+}
+.bottom-select .action .true{
+	color: #333;
+}
+.bottom-select .action .false{
+	color: #999;
+}
+.bottom-select .menu{
+	line-height: 4.9rem;
+	text-align: center;
+}
+.bottom-select .menu li{
+	border-bottom: 1px solid #ddd;
+	font-size: 16px;
+	color: #333;
+}
+
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #ccc;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #ccc;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #ccc;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #ccc;
+}

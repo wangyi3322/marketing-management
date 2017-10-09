@@ -258,6 +258,11 @@
 	font-size: 1.5rem;
 	padding: 1.7rem 0 1.8rem 0;
 }
+.login-tips{
+	text-align: center;
+	margin-top: 1rem;
+	font-size: 12px;
+}
 /*exchange-key-ct 提现金额 CDK*/
 .exchange-key-ct .tips{
 	color: #999;
@@ -310,6 +315,7 @@
 	font-size: 1.8rem;
 	padding-left: 9.2rem;
 	box-sizing: border-box;
+	color: #666;
 }
 .btn-ct {
 	margin-top: 2rem;
