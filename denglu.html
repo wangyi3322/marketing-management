@@ -2,44 +2,48 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>我的</title>
+	<title>登录</title>
 	<link rel="stylesheet" href="css/public.css">
 	<link rel="stylesheet" href="css/style.css">
     <meta name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
-	<div id="header">
+<!-- 	<div id="header">
 		<span>用户中心</span>
 		<div class="left" onclick="javascript:history.go(-1);">
 			&nbsp;&nbsp;&nbsp;<
 		</div>
 		<div class="right">			
 		</div>
-	</div>
-	<div class="my-home-ct">
-		<div class="base-info">
-			<div class="title">	<span>基本信息</span><a href="./Information-change.html" class="a-go-edit">完善</a></div>
-			<ul class="info-list">
-				<li><span class='title'>用户名：</span><span class=''>test001</span></li>
-				<li><span class='title'>手机号：</span><span class=''>test001</span></li>
-				<li><span class='title'>姓名：</span><span class=''>test001</span></li>
-				<li><span class='title'>银行卡号：</span><span class=''>000011996600</span></li>
-				<li><span class='title'>开户行：</span><span class=''>--</span></li>
-				<li><span class='title'>国家：</span><span class=''>--</span></li>
-				<li><span class='title'>接点人：</span><span class=''>--</span></li>
-			</ul>
-		</div>	
-	</div>
-	<div class="repassword-list">
-		<div class="ct">
-			<span>登录密码</span>
-			<a href="./repassword.html" class="repassword-a">修改</a>
+	</div> -->
+	<div class="login-ct">
+		<ul>
+			<li><div class="login-icon"><span></span></div><input type="text" placeholder="请输入用户名">
+			<div class="label-checkbox">
+				<span></span>
+			</div>
+			</li>
+			<li><div class="login-icon"><span></span></div><input type="text" placeholder="请输入密码">
+			<div class="label-checkbox">
+				<span></span>
+			</div>
+			</li>
+			<li><div class="login-icon"><span></span></div><input type="text" placeholder="请输入图形验证码">
+			<div class="label-checkbox yzm-box">
+				<span class="yzm"></span>
+			</div>
+			</li>
+
+		</ul>
+		<div class="login-btn btn-ct">
+			<button>登录</button>
 		</div>
+		<div class="a-list">
+			<a href="./repassword.html" class="register fl">立即注册</a>
+			<a href="./repassword.html" class="repassword fr">忘记密码?</a>
+		</div>		
 	</div>
-	<div class="btn-ct">
-		<a class="quit-btn" href="denglu.html">退出登录</a>
-	</div>	
 <p style="height:80px;"></p>
 	<div id="footer-bar">
 		<a href="./index.html" class="footer-bar-item">
