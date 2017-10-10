@@ -9,29 +9,22 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
-<!-- 	<div id="header">
-		<span>用户中心</span>
-		<div class="left" onclick="javascript:history.go(-1);">
-			&nbsp;&nbsp;&nbsp;<
-		</div>
-		<div class="right">			
-		</div>
-	</div> -->
+
 	<div class="login-ct">
 		<ul>
-			<li><div class="login-icon"><span></span></div><input type="text" placeholder="请输入用户名">
+			<li><div class="login-icon user-name-icon"><span></span></div><input type="text" placeholder="请输入用户名">
 			<div class="label-checkbox">
 				<span></span>
 			</div>
 			</li>
-			<li><div class="login-icon"><span></span></div><input type="text" placeholder="请输入密码">
+			<li><div class="login-icon password-icon"><span></span></div><input type="text" placeholder="请输入密码">
 			<div class="label-checkbox">
 				<span></span>
 			</div>
 			</li>
-			<li><div class="login-icon"><span></span></div><input type="text" placeholder="请输入图形验证码">
+			<li><div class="login-icon  captcha-icon"><span></span></div><input type="text" placeholder="请输入图形验证码">
 			<div class="label-checkbox yzm-box">
-				<span class="yzm"><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=496740924,3861938915&fm=27&gp=0.jpg" alt=""></span>
+				<span class="yzm"><img id='identifyingCode' src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=496740924,3861938915&fm=27&gp=0.jpg" alt=""></span>
 			</div>
 			</li>
 
@@ -71,5 +64,24 @@
 			<p class="footer-bar-label">我的</p>
 		</a>
 	</div>	
+<script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="./js/layer.js"></script> 
+<script type="text/javascript" src="./js/common.js"></script> 
+<script type="text/javascript">	
+	getCaptcha();
+	function getCaptcha(){
+		askdata("/api/wx/image/getCaptcha",{},"post",function(data){
+		if (data.code == 200) {
+			 $("#identifyingCode").attr("src", data.data.image);
+            	console.log('验证码已经请求');             	      	
+            } else {
+                console.log('no');
+            }
+		})
+	}
+	$("#identifyingCode").click(function(){
+		getCaptcha();
+	});
+</script>
 </body>
 </html>

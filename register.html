@@ -5,23 +5,24 @@
 	<title>注册</title>
 	<link rel="stylesheet" href="css/public.css">
 	<link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/layer.css">
     <meta name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
 	<div class="repassword-ct register-ct">
 		<ul>
-			<li><div class="">用户名</div><input type="text" placeholder="请输入6-12位字母、数字或中文"></li>
-			<li><div class="">手机号</div><input type="text" placeholder="请输入您的手机号"></li>
-			<li><div class="">接受人</div><input type="text" placeholder="请再次接受人的用户名或手机号"></li>
-			<li class="port-menu"><div >接口市场</div><input type="text"readonly="readonly" placeholder="请选择接点市场"></li>
-			<li><div class="">激活码</div><input type="text" placeholder="请再次输入会员激活码"></li>
+			<li><div>用户名</div><input class="username-input" type="text" placeholder="请输入6-12位字母、数字或中文"></li>
+			<li><div>手机号</div><input class="phone-input" type="text" placeholder="请输入您的手机号"></li>
+			<li><div>接受人</div><input class="receiver-input" type="text" placeholder="请再次接受人的用户名或手机号"></li>
+			<li class="port-menu"><div>接口市场</div><input class="port-market-input" type="text"readonly="readonly" placeholder="请选择接点市场"></li>
+			<li><div >激活码</div><input class='key-input' type="text" placeholder="请再次输入会员激活码"></li>
 		</ul>
 		<div class="register-btn btn-ct">
-			<button>下一步</button>
+			<a  href="javascript:;">下一步</a>
 		</div>
 		<div class="login-tips">
-			已有账号?<a href="./register-password.html">请登录</a>
+			已有账号? <a href="javascript:;">请登录</a>
 		</div>
 	</div>
 <p style="height:80px;"></p>
@@ -61,135 +62,121 @@
 			<span  class="fr true">确定</span>
 		</div>
 		<ul class="menu">
-			<li>市场A</li>
+<!-- 			<li>市场A</li>
 			<li>市场B</li>
-			<li>市场C</li>
+			<li>市场C</li> -->
 		</ul>
 	</div>
 </div>
 
 <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript" src="./js/layer.js"></script> 
 <script type="text/javascript" src="./js/common.js"></script> 
 <script type="text/javascript">
-	$('.port-menu').click(function(){
-		$('.bottom-select-ct').show();
-	});
-	$('.false,.true').click(function(){
-		$('.bottom-select-ct').hide();
-	});
-	$('.menu li').on('click',function(){
-		console.log($(this).text());
-		$('.bottom-select-ct').hide();
-		$('.port-menu input').attr('value',$(this).text());
-	});
+
+    // var receiver = '15158886267';
+    //请求接点人市场
+    $('.port-menu').click(function(){
+      var receiver = $('.receiver-input').val();
+      if(receiver == ''){
+        toast('请先选择接点人');      
+      }else{
+        console.log(receiver);
+        askdata("/api/wx/goin/getMarket", {memberName:receiver}, "POST", function(data){ 
+            if(data.code == 200){
+               market =data.data.market; 
+               var html ='';
+               for(var i = 0;i< market.length;i++){
+                 html += '<li>'+ '市场' + market[i]+ '</li>'
+               };
+              $('.bottom-select .menu').html(html);
+            }else{
+              console.log('没拿到数据');
+            }                          
+         })
+         $('.bottom-select-ct').show();
+      }       
+    });
+
+  //数据提交
+  var phoneno = /^1[3|4|5|7|8][0-9]{9}$/;
+  $('.register-btn a').click(function(){
+
+    var username = $('.username-input').val();  
+    var mobile = $('.phone-input').val();  
+    var receiver = $('.receiver-input').val();
+    var portMarket = $('.port-market-input').val(); 
+    var key =  $('.key-input').val(); 
+    if (username == "") {
+      toast("请输入用户名");
+      return false;
+    }else if (username.length < 6 || username.length > 20) {
+            toast("用户名由6-20位字母数字或中文组成");
+            return false;
+        } else if (mobile == "") {
+            toast("请输入手机号码");
+            return false;
+        } else if(mobile.length > 11){
+            toast("手机号码不能大于11位");
+            return false;
+        }else if (!phoneno.test(mobile)) {
+            toast("请输入正确的手机号码");
+            return false;
+        }else if (receiver == "") {
+            toast("请输入接受人");
+            return false;
+        }else if (portMarket == "") {
+            toast("请选择接口市场");
+            return false;
+        }else if (key == "") {
+            toast("请输入激活码");
+            return false;
+        }else{       
+          askdata("/api/wx/goin/referStep1",{
+            'mobile':mobile,
+            'name': username,
+            'pname': receiver,
+            'contactMarket': portMarket.substring(2,3),
+            'pcode':key
+          },"POST", function (data) {
+                if (data.code == 200) {
+                  alert(data.data.mobile);
+                  $('.register-btn a').attr("href",'./password-phone.html?phone='+data.data.mobile + '&rhid=' + data.data.rhid) 
+                } else {
+                  console.log('no');
+                }
+            })
+      
+        }
+
+    });
+     
+ /*     $.ajax({
+            url: 'http://10.0.0.227:8080//api/wx/goin/getMarket',
+            type: 'post',  
+            data: {               
+                memberName:'15158886267'
+            }
+        }).done(function(ret) {               
+           console.log(ret);
+        })
+*/
+ 
+
 </script>
 <script type="text/javascript">
-// getData();
-// function getData() {
-//         $.ajax({
-//             url: 'http://platform.sina.com.cn/slide/album_tech',
-//             type: 'get',
-//             dataType: 'jsonp',
-//             jsonp: 'jsoncallback',
-//             data: {
-//                  app_key: '1271687855',
-//                 num: 1,
-//                 page:2
-//             }
-//         }).done(function (ret) {               
-//             if(ret.status.code === '0'){
-//                console.log(ret.data);
-              
-//             }
-//         }).fail(function () {
-//             alert('系统异常，请稍后再试！')
-//         })
-//     }
-
- 		
-         // askdata("/api/aboutUs/siteList", {}, "POST", function (data) {    
-         //    if(data.code == 200){
-         //       console.log(data); 
-         //    }else {
-         //        console.log('没拿到数据');
-         //     }
-                              
-         //  })
-
-        // askdata("/api/aboutUs/siteList", {}, "POST", function (data) {    
-        //     if(data.code == 200){
-        //        console.log(data); 
-        //     }else {
-        //         console.log('没拿到数据');
-        //     }
-                            
-        // })
-
-
-      askdata("/api/wx/goin/getMarket", {memberName:'test'}, "POST", function(data) {    
-            if(data.code == 200){
-               console.log(data); 
-            }else {
-                console.log('没拿到数据');
-            }
-                            
-        })
-
-      // $.ajax({
-      //       url: 'http://10.0.0.227:8080/api/member/index/announcePage',
-      //       type: 'post',    
- 
-      //       data: {               
-      //           rows: 1,
-      //           page:2
-      //       }
-      //   }).done(function(ret) {               
-      //      console.log(ret);
-      //   })
-
-// $.ajax({
-//         url: "http://10.0.0.227:8080/api/member/index/announcePage",
-//         type: 'POST',
-//         dataType: 'JSONP',//here
-//         data: {               
-//                rows: 1,
-//                 page:2
-//            },
-//         success: function(data) {
-//         	console.log(data);
-//         }
-//     });
-// $.ajax({
-//         url: "http://10.0.0.227:8080/api/wx/goin/getMarket",
-//         type: 'POST',
-      
-//         data: {               
-//                memberName:'test'
-//            },
-//         success: function(data) {
-//         	console.log(data);
-//         }
-//     });
-/*
-	$.ajax({
-            type: "pody",
-            async: false,
-            url: "http://10.0.0.227:8080/api/member/index/announcePage",
-            data: {               
-               rows: 1,
-                page:2
-          	 },
-            dataType: "jsonp",
-            jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
-            jsonpCallback:"flightHandler",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
-            success: function(json){
-                alert('success' + JSON.stringify(json));
-            },
-            error: function(){
-                alert('fail');
-            }
-        });
-*/
+  // $('.port-menu').click(function(){
+  //   $('.bottom-select-ct').show();
+  // });
+  $('.false,.true').click(function(){
+    $('.bottom-select-ct').hide();
+  });
+  $('.menu').on('click','li',function(){
+    console.log($(this).text());
+    $('.bottom-select-ct').hide();
+    $('.port-menu input').attr('value',$(this).text());
+  });
 </script>
 </body>
 </html>

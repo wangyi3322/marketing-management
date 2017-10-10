@@ -65,7 +65,7 @@
 	padding: 0 1rem;
 }
 .index-abtou .menu-ul{
-	padding: 0 1.5%;
+	padding: 0 1.2rem;
 }
 .register-explain{
 	background:   url('../images/home_icon_register.png') no-repeat left center;
@@ -83,7 +83,7 @@
 	height: 3.4rem;
 	line-height: 3.4rem;
 	background: #fff;
-	padding: 0 1%
+	padding: 0 1.2rem;
 }
 .news li a{
 	display: block;
@@ -166,7 +166,7 @@
 }
 /*我的cdk my-key*/
 .menu-ul{
-	padding: 0 1.5%;
+	padding: 0 1.2rem;
 }
 .financial-control-ct .menu-ul li{
 	background:   url('../images/home_icon_register.png') no-repeat left center;
@@ -260,8 +260,11 @@
 }
 .login-tips{
 	text-align: center;
-	margin-top: 1rem;
-	font-size: 12px;
+	margin-top: 1.5rem;
+	font-size: 14px;
+}
+.login-tips a{
+	color: #ec453e;
 }
 /*exchange-key-ct 提现金额 CDK*/
 .exchange-key-ct .tips{
@@ -300,6 +303,16 @@
 	line-height: 4.4rem;
 	width: 8.6rem;
 	padding-left: 1.8rem;
+}
+.repassword-ct>ul li span{
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 1.8rem;
+	line-height: 4.4rem;
+	width: 8.6rem;
+	padding-left: 1.8rem;
+	font-size: 1.4rem;
 }
 .repassword-ct>ul li p{
 	width: 100%;
@@ -388,7 +401,7 @@
 }
 /*找回密码*/
 .password-phone .phone-title{
-	padding: 1rem 0 0 1rem;
+	padding: 1rem 1rem 0 1rem;
 	font-size: 16px;
 }
 /*市场管理*/
@@ -620,6 +633,15 @@
 	height: 100%;
 	background: url('../images/finance_icon_dhjl.png') no-repeat center center;
 	background-size: 2.6rem 2.6rem;
+}
+.login-ct .user-name-icon span{
+	background: url('../images/login_icon_phone.png') no-repeat center center;
+}
+.login-ct .password-icon span{
+	background: url('../images/login_icon_pwd.png') no-repeat center center;
+}
+.login-ct .captcha-icon span{
+	background: url('../images/login_icon_yzm.png') no-repeat center center;
 }
 .a-list{
 	padding: 0 2rem;

@@ -417,3 +417,50 @@ _arr[1]=/[^\d]/g;
 function filtecharacter(obj, index) {
     obj.value = obj.value.replace(_arr[index], "");
 }
+
+/*toast*/
+function toast(str,fn){
+        layer.open({
+            content     : str,
+            shadeClose  : false,
+            time        : 3,
+            style       : 'top:-100px;color:#fff;background-color: rgba(0, 0, 0, 0.59);',
+            end         : fn
+        })
+        $('.laymshade').hide();
+    }
+
+    //带一个按钮的提示框
+    function layer_alert(str,fn){
+        layer.open({
+            title       : '提示',
+            content     : str,
+            shadeClose  : false,
+            style       : 'width:90%;',
+            btn         : ['确定'],
+            end         : fn
+        })
+        $('.layermend').hide().siblings('h3').css({
+            padding     : 0,
+            border      : 0
+        })
+        $('.layermcont').css({color:'#fff',padding:'0 10px 20px'})
+    };
+
+    //带两个按钮的提示框
+    function layer_btns(str,btn1,btn2,fn1,fn2){
+        layer.open({
+            title       : '提示',
+            content     : str,
+            shadeClose  : false,
+            style       : 'width:90%;',
+            btn         : [btn1,btn2],
+            yes         : fn1,
+            no          : fn2
+        })
+        $('.layermend').hide().siblings('h3').css({
+            padding     : 0,
+            border      : 0
+        })
+        $('.layermcont').css({color:'#fff',padding:'0 10px 20px'})
+    }

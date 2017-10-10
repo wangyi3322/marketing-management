@@ -1,0 +1,55 @@
+<script>
+    ar phoneno = /^1[3|4|5|7|8][0-9]{9}$/;
+    var passwdReg = /^[a-zA-Z0-9]*([a-zA-Z][0-9]|[0-9][a-zA-Z])[a-zA-Z0-9]*$/;
+    var backMobile = "";
+    var backName = "";
+    $(".register-content .next").click(function () {
+        var mobile = $("#mobile").val();
+        var username = $("#username").val();
+        var code = $("#code").val();
+        //console.log(mobile + "..." + username + "..." + code);
+        var p = /^[0-9a-zA-Z]*$/g;
+        if (username == "") {
+            toast("请输入用户名");
+            return false;
+        } else if (username.length < 6 || username.length > 20) {
+            toast("用户名由6-20位字母数字组成");
+            return false;
+        } else if(!p.test(username)){
+            toast("用户名由6-20位字母数字组成");
+            return false;
+        }else if (mobile == "") {
+            toast("请输入手机号码");
+            return false;
+        } else if(mobile.length > 11){
+            toast("手机号码不能大于11位");
+            return false;
+        }else if (!phoneno.test(mobile)) {
+            toast("请输入正确的手机号码");
+            return false;
+        } else if (code == "") {
+            toast("请输入验证码");
+            return false;
+        } else {
+            askdatas("/api/seller/doSellerRegister ", {
+                'mobile': mobile,
+                'username': username,
+                'codeId':smsCodeId,
+                'smsCode': code
+            }, "POST", function (data) {
+                if (data.code == 1) {
+                    delCookie('merchant_register_sms');
+                    backMobile = data.data.mobile;
+                    backName = data.data.name 
+
+                ;
+                    $(".register-first").hide();
+                    $(".register-second").show();
+                } else {
+                    toast(data.msg);
+                }
+            })
+        }
+    });
+
+</script>

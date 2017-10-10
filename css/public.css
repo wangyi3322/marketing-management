@@ -319,8 +319,7 @@ html{
 	font-size: 16px;
 	color: #333;
 }
-
-
+/*placeholder-color*/
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:    #ccc;
 }
@@ -332,4 +331,27 @@ html{
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
    color:    #ccc;
+}
+/*tost*/
+.tost{
+	position: fixed;
+	top: 170px;
+	background: rgba(17,17,17,0.7);
+	padding: 2.5rem 0;
+	left: 50%;
+	margin-left: -5rem;
+	width: 10rem;
+	border-radius: 5px;
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+	display: inline-block;
+}
+.tost img{
+	width: 40px;
+	height: 40px;
+}
+.tost-content{
+	font-size: 14px;
+	margin-top: 1rem;
 }
