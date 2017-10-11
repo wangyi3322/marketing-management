@@ -252,6 +252,7 @@
 }
 .news-explain-ct .title,.news-explain-ct .date{
 	text-align: center;
+	text-indent: 0;
 }
 .news-explain-ct .date{
 	color: #999;
@@ -466,6 +467,10 @@
 .news-list-ct li p{
 	font-size: 12px;
 	line-height: 1.8;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap; 
+
 }
 .news-list-ct li a{
 	display: block;
@@ -678,4 +683,9 @@
 	width: 100%;
 	height: 100%;
 	background: #000;
+}
+/*repassword*/
+.repassword-one .title{
+	line-height: 4.4rem;
+	font-size: 16px;
 }

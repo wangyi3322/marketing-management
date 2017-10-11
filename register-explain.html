@@ -2,37 +2,20 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>首页</title>
-    <meta name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
 	<link rel="stylesheet" href="css/public.css">
 	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/layer.css">
+    <meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
 <body>
 
-	<div class="news-list-ct">
-		<ul>
-			<li>
-				<a href="./news-explain.html">
-					<p>
-						<span class='title'>国庆放假通知</span>
-						<span class='date'>2017-09-20</span>
-					</p>
-					<p>这里是详细信息...</p>
-				</a>				
-			</li>
-			<li>
-				<a href="./news-explain.html">
-					<p>
-						<span class='title'>国庆放假通知</span>
-						<span class='date'>2017-09-20</span>
-					</p>
-					<p>这里是详细信息...</p>
-				</a>				
-			</li>
-		</ul>
+	<div class="login-explain-ct">
+		<p>本系统提醒您：感谢您使用本系统，在使用本系统的所有功能之前，请您仔细阅读并理解本说明。您的使用行为将被视为对本说明全部内容的认可。</p>
+		<p>关于隐私权：访问者在本系统注册时提供的个人资料，除您本人同意外不会泄漏给第三方。当政府部门、司法机关 等依照法定程序要求本系统披露个人资料时，本系统将根据执法单位的要求或为公共安全目的提供个人资料，在此 情况下的披露，本系统不承担任何责任。</p>
 	</div>
-	<p style="height:80px;"></p>
+
+<p style="height:80px;"></p>
 	<div id="footer-bar">
 		<a href="./index.html" class="footer-bar-item">
 			<span style="display: inline-block;position: relative;">
@@ -60,17 +43,16 @@
 		</a>
 	</div>	
 
+
 <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="./js/layer.js"></script> 
 <script type="text/javascript" src="./js/common.js"></script> 
-<script type="text/javascript" src="./js/jsencrypt.min.js"></script>
+
 <script type="text/javascript">	
-
-	var page = 1,rows = 2;
+	var newsID = dealURl('id');
 	getnewList();
-
 	function getnewList(){
-		askdata("/api/member/index/announcePage",{page:page,rows:rows,hid:getCookie('hid')},"post",function(data){
+		askdata("/api/member/index/registerExplain",{hid:getCookie('hid')},"post",function(data){
 		if (data.code == 200) {
 			 console.log(data);	
 			 renderNews(data.data);	               	      	
@@ -78,25 +60,12 @@
                toast('参数错误');
             }
 		})
-	}  
+	}
 
-	function renderNews(data){
-		var html  = '';
-		$.each(data.rows,function(){
-			console.log(data);
-		html += '<li>'
-				+'<a href="./news-explain.html?id='+ this.id +'">'
-				+	'<p>'
-				+		'<span class="title">'+this.title+'</span>'
-				+		'<span class="date">'+ this.createTime +'</span>'
-				+	'</p>'
-				+	'<p>'+this.content+'</p>'
-				+'</a>'				
-				+'</li>'
-		});
-		$('.news-list-ct ul').html(html);
-	} 
-</script>
-
+	function renderNews(data){	
+		
+		$('.login-explain-ct').html(data.content);
+	}   
+</script>	
 </body>
 </html>

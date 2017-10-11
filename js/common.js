@@ -423,7 +423,7 @@ function toast(str,fn){
         layer.open({
             content     : str,
             shadeClose  : false,
-            time        : 3,
+            time        : 1,
             style       : 'top:-100px;color:#fff;background-color: rgba(0, 0, 0, 0.59);',
             end         : fn
         })
@@ -464,3 +464,9 @@ function toast(str,fn){
         })
         $('.layermcont').css({color:'#fff',padding:'0 10px 20px'})
     }
+
+$('#footer-bar').on('click','a',function(){
+  console.log($(this).html());
+
+   
+});

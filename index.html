@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>首页</title>
-
 	<link rel="stylesheet" href="css/public.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/layer.css">
     <meta name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta content="yes" name="apple-mobile-web-app-capable" />
@@ -37,16 +37,16 @@
 		<ul class="user-money">
 			<li class="left">
 				<p class="title">累计金币</p>
-				<p>21.00</p>
+				<p class="total">21.00</p>
 				</li>
 			<li class="content">
 				<p class="title">可用金币</p>
-				<p>21.00</p>
+				<p class="avaiable">21.00</p>
 			</li>
 			<li class="right"><a href="./exchange-money.html" class="tx-btn">提现</a></li>
 		</ul>	
 		<div class="index-tips">
-			<span class='text'>提示：会员还有<span style='color:#ec453d;'>10天</span>到期</span>
+			<span class='text'>提示：会员还有<span class='code-day' style='color:#ec453d;'>10天</span>到期</span>
 			<span class='xf-box'>
 				<a href="#" class="xf-btn">续费</a>
 			</span>
@@ -58,8 +58,8 @@
 	</div>
 	<div class="index-abtou">
 		<ul class="menu-ul">
-			<li><a href="./login-explain.html" class="register-explain">注册说明<span class='right-icon'></span></a></li>
-			<li><a href="./login-explain.html" class="money-explain">出入金说明<span class='right-icon'></span></a></li>
+			<li><a href="./register-explain.html" class="register-explain">注册说明<span class='right-icon'></span></a></li>
+			<li><a href="./gold-explain.html" class="money-explain">出入金说明<span class='right-icon'></span></a></li>
 		</ul>
 	</div>
 	
@@ -111,6 +111,45 @@
 			<p class="footer-bar-label">我的</p>
 		</a>
 	</div>	
+<script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="./js/layer.js"></script> 
+<script type="text/javascript" src="./js/common.js"></script> 
+<script type="text/javascript">
 
+	var userId = getCookie('hid');
+
+		
+	/*askdata("/api/member/index/memberIndex",{			
+		hid: userId
+	},"post",function(data){
+	if (data.code == 200) {
+       	renderData(data.data);           		
+        }else if(data.code == 400){
+        	toast(data.message);        	
+        }else if(data.code == 401){
+        	toast('请先登录');
+        	// window.location.href = './login.html';
+        }else{
+            toast('参数错误');
+        }
+	});
+	*/
+
+	//首页数据加载
+	function renderData(data){
+		console.log(data);
+		$('.user-name').text(data.name);
+		$('.total').text(data.total);
+		$('.avaiable').text(data.avaiable);
+		$('.code-day').text(data.codeDay);
+		if(data.lever == null){
+			$('.user-lever').hide();
+		}else{
+			$('.user-lever').html('vip' + data.lever);
+		}
+		
+	}
+
+</script>
 </body>
 </html>

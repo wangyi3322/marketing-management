@@ -91,11 +91,9 @@ Z94yiE9RvHMRQ8k=">
 		askdata("/api/wx/image/getCaptcha",{chid:getCookie('chid')},"post",function(data){
 		if (data.code == 200) {
 			 $("#identifyingCode").attr("src", data.data.image);
-			    SetCookie('chid',data.data.chid)
-			    console.log(chid);
-            	console.log('验证码已经请求');             	      	
+			    SetCookie('chid',data.data.chid)			               	      	
             } else {
-                console.log('no');
+                toast('参数错误');
             }
 		})
 	}
@@ -125,12 +123,14 @@ Z94yiE9RvHMRQ8k=">
 				if (data.code == 200) {
 					toast('登录成功');
 					delCookie(getCookie('chid'));
-					SetCookie('hid',data.data.hid);				
+					SetCookie('hid',data.data.hid);			
 	    
-	            	window.location.href = './user-home.html';           	      	
-	            } else {
-	                console.log('no');
-	            }
+	            	window.location.href = './index.html';           	      	
+	            } else if(data.code == 400){
+             	   	toast(data.message);
+           		}else{
+           			toast('参数错误');
+           		}
 		})
 
 		

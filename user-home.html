@@ -5,6 +5,7 @@
 	<title>我的</title>
 	<link rel="stylesheet" href="css/public.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/layer.css">
     <meta name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
@@ -13,20 +14,20 @@
 		<div class="base-info">
 			<div class="title">	<span>基本信息</span><a href="./Information-change.html" class="a-go-edit">完善</a></div>
 			<ul class="info-list">
-				<li><span class='title'>用户名：</span><span class=''>test001</span></li>
-				<li><span class='title'>手机号：</span><span class=''>test001</span></li>
-				<li><span class='title'>姓名：</span><span class=''>test001</span></li>
-				<li><span class='title'>银行卡号：</span><span class=''>000011996600</span></li>
-				<li><span class='title'>开户行：</span><span class=''>--</span></li>
-				<li><span class='title'>国家：</span><span class=''>--</span></li>
-				<li><span class='title'>接点人：</span><span class=''>--</span></li>
+				<li><span class='title'>用户名：</span><span class='name'>test001</span></li>
+				<li><span class='title'>手机号：</span><span class='moble'>test001</span></li>
+				<li><span class='title'>姓名：</span><span class='self-name'>test001</span></li>
+				<li><span class='title'>银行卡号：</span><span class='bank-card'>000011996600</span></li>
+				<li><span class='title'>开户行：</span><span class='bank-name'>--</span></li>
+				<li><span class='title'>国家：</span><span class='country'>--</span></li>
+				<li><span class='title'>接点人：</span><span class='panme'>--</span></li>
 			</ul>
 		</div>	
 	</div>
 	<div class="repassword-list">
 		<div class="ct">
 			<span>登录密码</span>
-			<a href="./repassword.html" class="repassword-a">修改</a>
+			<a href="./repassword1.html" class="repassword-a">修改</a>
 		</div>
 	</div>
 	<div class="btn-ct">
@@ -59,5 +60,59 @@
 			<p class="footer-bar-label">我的</p>
 		</a>
 	</div>	
+<script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="./js/layer.js"></script> 
+<script type="text/javascript" src="./js/common.js"></script> 
+<script type="text/javascript" src="./js/jsencrypt.min.js"></script>
+<script type="text/javascript">	
+
+	var userId = getCookie('hid');
+
+		
+	askdata("/api/member/home/memberInfo",{			
+		hid: userId
+	},"post",function(data){
+		if (data.code == 200) {
+	       		renderData(data.data);           		
+	        }else if(data.code == 400){
+	        	toast(data.message);        	
+	        }else if(data.code == 401){
+	        	toast('请先登录');
+	        	window.location.href = './login.html';
+	        }else{
+	            toast('参数错误');
+			}
+	});
+
+	function renderData(data){
+		$('.name').text(data.name);
+		$('.moble').text(data.nickName);	
+		$('.panme').text(data.pname);
+	
+		if(data.bankName == null){	
+			$('.bank-name').text('---');
+		}else{
+			$('.bank-name').text(data.bankName);
+		}
+		if(data.realName == null){	
+			$('.self-name').text('---');
+		}else{
+			$('.self-name').text(data.bankNo);
+		}
+
+		if(data.bankNo == null){	
+			$('.bank-card').text('---');
+		}else{
+			$('.bank-card').text(data.bankNo);
+		}
+
+		if(data.country == null){	
+			$('.country').text('---');
+		}else{
+			$('.country').text(data.bankNo);
+		}
+	}
+				 
+</script>	
 </body>
 </html>
