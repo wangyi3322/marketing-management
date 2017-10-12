@@ -11,20 +11,8 @@
     <meta content="yes" name="apple-mobile-web-app-capable" />
 	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
 	<meta content="telephone=no" name="format-detection" />
-<!--    <link rel="stylesheet" href="//cdn.bootcss.com/weui/1.1.1/style/weui.min.css">
-	<link rel="stylesheet" href="//cdn.bootcss.com/jquery-weui/1.0.1/css/jquery-weui.min.css">  -->
-<!-- 	<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
-<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script> -->
 <body>
-<!-- 	<div id="header">
-		首页
-		<div class="left">
-			&nbsp;&nbsp;<
-		</div>
-		<div class="right">			
-		</div>
-	</div> -->
+
 	<div class="main-content">		
 		<div class="user-info">
 			<span class="user-name">
@@ -48,7 +36,7 @@
 		<div class="index-tips">
 			<span class='text'>提示：会员还有<span class='code-day' style='color:#ec453d;'>10天</span>到期</span>
 			<span class='xf-box'>
-				<a href="#" class="xf-btn">续费</a>
+				<a href="javascript:;" class="xf-btn renew-btn">续费</a>
 			</span>
 			
 		</div>	
@@ -62,28 +50,9 @@
 			<li><a href="./gold-explain.html" class="money-explain">出入金说明<span class='right-icon'></span></a></li>
 		</ul>
 	</div>
-	
-<!-- 	<div id="footer">
-		<ul>
-			<li class="acive">
-				<span><img src="./images/tab_home_n.png" alt=""></span>
-				<a href="./index.html">首页</a>
-			</li>
-			<li>
-				<span><img src="./images/tab_market_n.png" alt=""></span>
-				<a href="./bazaar.html">市场管理</a>
-			</li>
-			<li>
-				<span><img src="./images/tab_finance_n.png" alt=""></span>
-				<a href="./financial-control.html">财务管理</a>
-			</li>
 
-			<li>
-				<span><img src="./images/tab_mine_n.png" alt=""></span>
-				<a href="./user-home.html">我的</a>
-			</li>			
-		</ul>
-	</div> -->
+	
+
 	<p style="height:80px;"></p>
 	<div id="footer-bar">
 		<a href="./index.html" class="footer-bar-item">
@@ -111,6 +80,20 @@
 			<p class="footer-bar-label">我的</p>
 		</a>
 	</div>	
+
+	<div class="js-dialog" style="display:none">
+		<div class="dialog-ct">
+			<div class="dialog-mask">
+			</div>
+			<div class="dialog">
+				<div class="dialog-title">请输入激活码</div>
+				<input class="dialog-input" placeholder='请输入激活码'></input>
+				<div class="dialog-ft">
+					<a href="#" class="btn-false">取消</a>
+					<a href="#" class="btn-true">确定</a>
+				</div>
+			</div>
+	</div>
 <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="./js/layer.js"></script> 
 <script type="text/javascript" src="./js/common.js"></script> 
@@ -118,8 +101,8 @@
 
 	var userId = getCookie('hid');
 
-		
-	/*askdata("/api/member/index/memberIndex",{			
+	//请求用户数据	
+	askdata("/api/member/index/memberIndex",{			
 		hid: userId
 	},"post",function(data){
 	if (data.code == 200) {
@@ -128,12 +111,14 @@
         	toast(data.message);        	
         }else if(data.code == 401){
         	toast('请先登录');
-        	// window.location.href = './login.html';
+        	setTimeout(function(){
+        		window.location.href = './login.html';
+        	},1000);        	
         }else{
             toast('参数错误');
         }
 	});
-	*/
+	
 
 	//首页数据加载
 	function renderData(data){
@@ -150,6 +135,44 @@
 		
 	}
 
+
+	//兑换弹出框处理
+	$('.renew-btn').click(function(){
+		$('.js-dialog').show();
+	});
+	$('.btn-false').click(function(){
+		$('.js-dialog').hide();
+	});
+	$('.btn-true').click(function(){
+		if($('.dialog-input').val() == ''){
+			toast('请先输入激活码');
+		}else{
+			submitActivateCode();
+		}
+	});
+
+	//提交激活码
+	function submitActivateCode(){
+		var code =  $('.dialog-input').val();
+		askdata("/api/member/index/codeRenew",{			
+			hid: userId,
+			activateCode: code
+		},"post",function(data){
+		if (data.code == 200) {
+	    		console.log(data.data);           		
+	        }else if(data.code == 400){
+	        	toast(data.message);        	
+	        }else if(data.code == 401){
+	        	toast('请先登录');
+	        	setTimeout(function(){
+	        		window.location.href = './login.html';
+	        	},1000);        	
+	        }else{
+	            toast('参数错误');
+	        }
+		});
+	
+	}
 </script>
 </body>
 </html>

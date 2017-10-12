@@ -9,25 +9,18 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
-<!-- 	<div id="header">
-		<span>市场管理</span>
-		<div class="left" onclick="javascript:history.go(-1);">
-			&nbsp;&nbsp;&nbsp;<
-		</div>
-		<div class="right">			
-		</div>
-	</div> -->
+
 	<div class="exchange-key-ct">
 		<div class="tips">请输入提取金币(1金币=1元)</div>
 		<div class="input-box">
-			<input class="text-input" type="text" placeholder="请输入提取金币数量">
+			<input class="text-input gold-input" type="text" placeholder="请输入提取金币数量">
 		</div>
 		<div class="tips-money tips clearfix">
-			<span class='fl'>所需金币 <span class='b-c'>899</span></span>		
+			<span class='fl'>可用金币 <span class='b-c gold-all'>899</span></span>		
 		</div>
 	</div>
 	<div class="btn-ct">
-		<a href="">申请兑换</a>
+		<a href="javascript:;" class="conversion-gold">申请兑换</a>
 	</div>
 	<div class="exchange-tip"><span>*   </span>手续费 <span class='money'>0.00</span></div>
 	
@@ -74,16 +67,78 @@
 		</a>
 	</div>	
 
-<script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>	
+<script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="./js/layer.js"></script> 
+<script type="text/javascript" src="./js/common.js"></script> 
 <script type="text/javascript">
-	$('.btn-ct a').click(function(){
-		$('.js-dialog').fadeIn('300');	
-		return false;
+
+	var userId = getCookie('hid');
+
+	askdata("/api/member/home/goldCashData",{			
+		hid: userId
+	},"post",function(data){
+	if (data.code == 200) {
+       	$('.gold-all').text(data.data.available);           		
+        }else if(data.code == 400){
+        	toast(data.message);        	
+        }else if(data.code == 401){
+        	toast('请先登录');
+        	setTimeout(function(){
+        		window.location.href = './login.html';
+        	},1000);        	
+        }else{
+            toast('参数错误');
+        }
+	});	
+
+
+	$('.conversion-gold').click(function(){
+		conversionGold();
 	});
 
-	$('.btn-true,.btn-false').click(function(){
-		$('.js-dialog').fadeOut('300');
+	function conversionGold(){
+		var cashGold = $('.gold-input').val();
+		askdata("/api/member/home/cash",{			
+				hid: userId,
+				cashGold:cashGold
+			},"post",function(data){
+			if (data.code == 200) {
+		       	toast('兑换成功');
+		        	setTimeout(function(){
+		        		window.location.href = window.location.href;
+		        	},1000);         		
+		        }else if(data.code == 400){
+		        	toast(data.message);        	
+		        }else if(data.code == 401){
+		        	toast('请先登录');
+		        	setTimeout(function(){
+		        		window.location.href = './login.html';
+		        	},1000);        	
+		        }else{
+		            toast('参数错误');
+		        }
+			});	
+	}
+
+	//手续费计算
+	$('.gold-input').blur(function(){
+		var gold = $('.gold-input').val();
+		if(gold>=100){
+			var serviceGold = gold/100;
+			$('.money').text(gold/100);
+		}else{
+			toast('提现金额必须大于100');
+		}
+
 	});
+	// $('.btn-ct a').click(function(){
+	// 	$('.js-dialog').fadeIn('300');	
+	// 	return false;
+	// });
+
+	// $('.btn-true,.btn-false').click(function(){
+	// 	$('.js-dialog').fadeOut('300');
+	// });
 </script>
 </body>
 </html>

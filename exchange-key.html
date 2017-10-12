@@ -2,33 +2,27 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>奖金提现</title>
+	<title>兑换激活码</title>
 	<link rel="stylesheet" href="css/public.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/layer.css">
     <meta name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
-<!-- 	<div id="header">
-		<span>市场管理</span>
-		<div class="left" onclick="javascript:history.go(-1);">
-			&nbsp;&nbsp;&nbsp;<
-		</div>
-		<div class="right">
-		</div>
-	</div> -->
+
 	<div class="exchange-key-ct">
 		<div class="tips">请输入兑换数量</div>
 		<div class="input-box">
-			<input class="text-input" type="text" placeholder="请输入你要兑换的数量">
+			<input class="text-input key-number" type="text" placeholder="请输入你要兑换的数量">
 		</div>
 		<div class="tips-money tips clearfix">
-			<span class='fl'>所需金币 899</span>
-			<span class='fr'>可用金币 1000</span>
+			<span class='fl'>所需金币 <span class='gold need-gold bace-color'>00</span></span>
+			<span class='fr'>可用金币 <span class='gold available bace-color'>00</span></span>
 		</div>
 	</div>
 	<div class="btn-ct">
-		<a href="">申请兑换</a>
+		<a href="javascript:;"  class="conversion-key-btn">申请兑换</a>
 	</div>
 <p style="height:80px;"></p>
 	<div id="footer-bar">
@@ -57,5 +51,62 @@
 			<p class="footer-bar-label">我的</p>
 		</a>
 	</div>	
+
+
+<script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="./js/layer.js"></script> 
+<script type="text/javascript" src="./js/common.js"></script> 
+<script type="text/javascript">
+
+	var userId = getCookie('hid');
+
+	askdata("/api/member/home/codeExchangeData",{			
+		hid: userId
+	},"post",function(data){
+	if (data.code == 200) {
+		console.log(data);
+		$('.need-gold').text(data.data.needGold);  
+       	$('.available').text(data.data.available);           		
+        }else if(data.code == 400){
+        	toast(data.message);        	
+        }else if(data.code == 401){
+        	toast('请先登录');
+        	setTimeout(function(){
+        		window.location.href = './login.html';
+        	},1000);        	
+        }else{
+            toast('参数错误');
+        }
+	});	
+
+
+	$('.conversion-key-btn').click(function(){
+
+	});
+
+	function conversionKey(){
+		var keyNumber = $('.key-number').val();
+		askdata("/api/member/home/cash",{			
+				hid: userId,
+				cashGold:keyNumber
+			},"post",function(data){
+			if (data.code == 200) {
+		       	toast('兑换成功');
+		        	setTimeout(function(){
+		        		window.location.href = window.location.href;
+		        	},1000);         		
+		        }else if(data.code == 400){
+		        	toast(data.message);        	
+		        }else if(data.code == 401){
+		        	toast('请先登录');
+		        	setTimeout(function(){
+		        		window.location.href = './login.html';
+		        	},1000);        	
+		        }else{
+		            toast('参数错误');
+		        }
+			});	
+	}
+</script>	
 </body>
 </html>

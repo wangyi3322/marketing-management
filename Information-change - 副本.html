@@ -47,7 +47,7 @@
 		</ul>
 	</div>
 	<div class="btn-ct">
-		<a href="#" class="edit-info-btn">确定</a>
+		<a href="#" class="edit-info">确定</a>
 	</div>
 	
 	<p style="height:80px;"></p>
@@ -98,59 +98,81 @@
 <script type="text/javascript" src="./js/common.js"></script> 
 <script type="text/javascript">
 
-var userId = getCookie('hid');
+		var userId = getCookie('hid');
 
-//请求初始数据
-askdata("/api/member/home/memberInfoEdit",{			
-	hid: userId
-},"post",function(data){
-	if (data.code == 200) {
-       		render(data.data); 		
-        }else if(data.code == 400){
-        	toast(data.message);        	
-        }else if(data.code == 401){
-        	toast('请先登录');
-        	window.location.href = './login.html';
-        }else{
-            toast('参数错误');
-		}
-});	
+		var country = $('.country').text();
+		var bankNo = $('.bank-card').text();
+		var realName = $('.self-name').text();
+		var bankName = $('.bank-name').text();	
+		
+	askdata("/api/member/home/memberInfoEdit",{			
+		hid: userId
+	},"post",function(data){
+		if (data.code == 200) {
+	       		renderData(data.data);           		
+	        }else if(data.code == 400){
+	        	toast(data.message);        	
+	        }else if(data.code == 401){
+	        	toast('请先登录');
+	        	window.location.href = './login.html';
+	        }else{
+	            toast('参数错误');
+			}
+	});
 
-function render(data){
+function renderData(data){
 	$('.pname').text(data.pname);
-			$('.name').text(data.name);
-			$('.moble').text(data.nickName);		
+	$('.name').text(data.name);
+	$('.moble').text(data.nickName);		
 
-			if(data.bankName == null){	
-				$('.bank-name').val('');
-			}else{
-				$('.bank-name').val(data.bankName);
-			}
-			if(data.realName == null){	
-				$('.self-name').val('');
-			}else{
-				$('.self-name').val(data.realName);
-			}
+	if(data.bankName == null){	
+		$('.bank-name').val('');
+	}else{
+		$('.bank-name').val(data.bankName);
+	}
+	if(data.realName == null){	
+		$('.self-name').val('');
+	}else{
+		$('.self-name').val(data.realName);
+	}
 
-			if(data.bankNo == null){	
-				$('.bank-card').val('');
-			}else{
-				$('.bank-card').val(data.bankNo);
-			}
+	if(data.bankNo == null){	
+		$('.bank-card').val('');
+	}else{
+		$('.bank-card').val(data.bankNo);
+	}
 
-			if(data.country == null){	
-				$('.country').val('');
-			}else{
-				$('.country').val(data.country);
-			}          
-}
+	if(data.country == null){	
+		$('.country').val('');
+	}else{
+		$('.country').val(data.country);
+	}
+	
+}	
+// $('.btn-ct a').click(function(){
+	// 	$('.js-dialog').fadeIn('300');	
+	// 	return false;
+	// });
 
-$('.edit-info-btn').click(function(){
-		var country = $('.country').val();
-		var bankNo = $('.bank-card').val();
-		var realName = $('.self-name').val();
-		var bankName = $('.bank-name').val();	
-	askdata("/api/member/home/doMemberInfoEdit",{			
+	// $('.btn-true,.btn-false').click(function(){
+	// 	$('.js-dialog').fadeOut('300');
+	// });
+	
+
+	$('.edit-info').click(function(){
+		//数据判断
+		
+
+		// var phoneno = /^1[3|4|5|7|8][0-9]{9}$/;
+
+ 		// console.log(realName);
+		submitData();
+
+	});
+
+
+	function submitData(){
+		askdata("/api/member/home/doMemberInfoEdit",{			
 				hid: userId,
 				country: country,
 				bankNo: bankNo,
@@ -158,16 +180,16 @@ $('.edit-info-btn').click(function(){
 				bankName: bankName
 			},"post",function(data){
 				if (data.code == 200) {
-			       		console.log(data);           		
+			       		renderData(data.data);           		
 			        }else if(data.code == 400){
-			        	toast('修改成功');        	
+			        	toast(data.message);        	
 			        }else if(data.code == 401){
 			        	toast('请先登录');		        
 			        }else{
 			            toast('参数错误');
 			}
 		});
-});
+	}
 </script>	
 </body>
 </html>
