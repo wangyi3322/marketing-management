@@ -8,28 +8,26 @@
     <meta name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <body>
-<!-- 	<div id="header">
-		首页
-		<div class="left">
-			&nbsp;&nbsp;<
-		</div>
-		<div class="right">			
-		</div>
-	</div> -->
+
 	<div class="money-recode-ct">
 		<div class="title">
 			累计金币 <span class="num">200.00</span>
 			<p class="tips">( 奖金通过级别发放每天发放，数据统计值2017-8-9)</p>
 		</div>
-		<ul>
-			<li class="clearfix">			
+		<div class="addgoods-item time-ct">    
+	       <span class="fl right-choose black6 time1"><span id="start">请选择开始日期</span></span>   
+	       <span class='time-line'></span>
+	      <span class="fr right-choose black6 time2"><span id="end">请选择结束日期</span></span>   
+		</div>
+		<ul >
+<!-- 			<li class="clearfix">			
 				<p class='title fl'>兑换数量：2</p>
 				<p class="value fr">+ 200</p>	
 			</li>
 			<li class="clearfix">			
 				<p class='title fl'>兑换数量：2</p>
 				<p class="value fr">+ 200</p>	
-			</li>
+			</li> -->
 		</ul>
 	</div>
 <p style="height:80px;"></p>
@@ -59,5 +57,75 @@
 			<p class="footer-bar-label">我的</p>
 		</a>
 	</div>	
+
+
+<script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="./js/layer.js"></script> 
+<script type="text/javascript" src="./js/common.js"></script> 
+<script type="text/javascript" src="./js/datePicker.js"></script> 
+
+<script type="text/javascript">
+
+	var userId = getCookie('hid');
+	var page = 1,row=10;
+	function getKeyList(minTime,maxTime){
+		askdata("/api/member/home/acaountLogPage",{			
+			hid: userId,
+			minDateStr:minTime,
+			maxDateStr:maxTime,
+			page: page,
+			row : row
+		},"post",function(data){
+			if (data.code == 200) {				
+				console.log(data.data);          		
+	        }else if(data.code == 400){
+	        	toast(data.message);        	
+	        }else if(data.code == 401){
+	        	toast('请先登录');
+	        	/*setTimeout(function(){
+	        		window.location.href = './login.html';
+	        	},1000);  */      	
+	        }else{
+	            toast('参数错误');
+	        }
+		});	
+	}
+
+
+	var calendar1 = new datePicker();
+    calendar1.init({
+        'trigger': '.time1', /*按钮选择器，用于触发弹出插件*/
+        'type': 'datetime', /*模式：date日期；datetime日期时间；time时间；ym年月；*/
+        'minDate': '1900-1-1', /*最小日期*/
+        'maxDate': '2100-12-31', /*最大日期*/
+        'onSubmit': function () {/*确认时触发事件*/
+            $(".time1").find("span").html(calendar1.value);
+        },
+        'onClose': function () {/*取消时触发事件*/
+        }
+    });
+    var calendar2 = new datePicker();
+    calendar2.init({
+        'trigger': '.time2', /*按钮选择器，用于触发弹出插件*/
+        'type': 'datetime', /*模式：date日期；datetime日期时间；time时间；ym年月；*/
+        'minDate': '1900-1-1', /*最小日期*/
+        'maxDate': '2100-12-31', /*最大日期*/
+        'onSubmit': function () {/*确认时触发事件*/
+        	if($(".time1").text() == '请选择开始日期'){
+        		toast('请先选择开始时间');
+        	}else{
+        		$(".time2").find("span").html(calendar2.value);
+        		 var minTime = $('.time1').text();
+        		 var maxTime = $('.time2').text()
+        		setTimeout(function(){
+        			getKeyList(minTime,maxTime);
+        		},500);
+        	}
+            
+        },
+        'onClose': function () {/*取消时触发事件*/
+        }
+    });
+</script>	
 </body>
 </html>

@@ -43,6 +43,7 @@
 	</div>
 	<div class="news">
 		<li><a href="./news-list.html">国庆放假通知</a></li>
+		<li><a href="./news-list.html">国庆放假通知</a></li>
 	</div>
 	<div class="index-abtou">
 		<ul class="menu-ul">
@@ -106,7 +107,8 @@
 		hid: userId
 	},"post",function(data){
 	if (data.code == 200) {
-       	renderData(data.data);           		
+       		renderData(data.data);   
+       		renderNewList(data.announceList);    //新闻列表滚动     		
         }else if(data.code == 400){
         	toast(data.message);        	
         }else if(data.code == 401){
@@ -170,9 +172,11 @@
 	        }else{
 	            toast('参数错误');
 	        }
-		});
-	
+		});	
 	}
+
+	//新闻列表页
+
 </script>
 </body>
 </html>

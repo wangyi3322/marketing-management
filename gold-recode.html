@@ -1,37 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
 	<meta charset="UTF-8">
-	<title>兑换激活码</title>
+	<title>兑换记录</title>
 	<link rel="stylesheet" href="css/public.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/layer.css">
     <meta name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-</head>
+
 <body>
-<div class="addgoods-item whiteback">
-    <div class="goods-line">
-        <p class="black3">开始时间<span class="fr right-choose black6 time1"><span id="start">请选择</span><img
-                src="img/arrow_right.png"/></span></p>
-    </div>
-    <div>
-        <p class="black3">结束时间<span class="fr right-choose black6 time2"><span id="end">请选择</span><img
-                src="img/arrow_right.png"/></span></p>
-    </div>
+<div class="addgoods-item time-ct">    
+       <span class="fl right-choose black6 time1"><span id="start">请选择开始日期</span></span>   
+       <span class='time-line'></span>
+      <span class="fr right-choose black6 time2"><span id="end">请选择结束日期</span></span>
+   
 </div>
-	<div class="exchange-key-ct">
-		<div class="tips">请输入兑换数量</div>
-		<div class="input-box">
-			<input class="text-input key-number" type="text" placeholder="请输入你要兑换的数量">
-		</div>
-		<div class="tips-money tips clearfix">
-			<span class='fl'>所需金币 <span class='gold need-gold bace-color'>00</span></span>
-			<span class='fr'>可用金币 <span class='gold available bace-color'>00</span></span>
-		</div>
-	</div>
-	<div class="btn-ct">
-		<a href="javascript:;"  class="conversion-key-btn">申请兑换</a>
+	<div class="key-recode-ct" style="display：none">
+		<ul>
+			<!-- <li>
+				<div class="info">
+					<p class='title'>兑换数量：2</p>
+					<p class="date">2017-9-28 15:04:11</p>
+				</div>
+				<div class="status">
+					已完成
+				</div>
+			</li>
+			<li>
+				<div class="info">
+					<p class='title'>兑换数量：2</p>
+					<p class="date">2017-9-28 15:04:11</p>
+				</div>
+				<div class="status">
+					已完成
+				</div>
+			</li> -->
+		</ul>
 	</div>
 <p style="height:80px;"></p>
 	<div id="footer-bar">
@@ -61,7 +66,6 @@
 		</a>
 	</div>	
 
-
 <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="./js/layer.js"></script> 
 <script type="text/javascript" src="./js/common.js"></script> 
@@ -70,58 +74,50 @@
 <script type="text/javascript">
 
 	var userId = getCookie('hid');
-	var needGold;
-	
-	askdata("/api/member/home/codeExchangeData",{			
-		hid: userId
-	},"post",function(data){
-	if (data.code == 200) {
-		
-		needGold  = data.data.needGold;
-
-		$('.need-gold').text(data.data.needGold);  
-       	$('.available').text(data.data.available);           		
-        }else if(data.code == 400){
-        	toast(data.message);        	
-        }else if(data.code == 401){
-        	toast('请先登录');
-        	/*setTimeout(function(){
-        		window.location.href = './login.html';
-        	},1000);  */      	
-        }else{
-            toast('参数错误');
-        }
-	});	
-
-
-	$('.conversion-key-btn').click(function(){
-		conversionKey();
-	});
-
-	function conversionKey(){
-		var keyNumber = $('.key-number').val();
-		askdata("/api/member/home/codeExchange",{			
-				hid: userId,			
-				codeNum:keyNumber,
-				totalGold: keyNumber*needGold		
-			},"post",function(data){
-			if (data.code == 200) {
-		       	toast('兑换成功');
-		        	setTimeout(function(){
-		        		window.location.href = window.location.href;
-		        	},1000);         		
-		        }else if(data.code == 400){
-		        	toast(data.message);        	
-		        }else if(data.code == 401){
-		        	toast('请先登录');
-		        	setTimeout(function(){
-		        		window.location.href = './login.html';
-		        	},1000);        	
-		        }else{
-		            toast('参数错误');
-		        }
-			});	
+	var page = 1,row=10;
+	function getKeyList(minTime,maxTime){
+		askdata("/api/member/home/cashPage",{			
+			hid: userId,
+			minDateStr:minTime,
+			maxDateStr:maxTime,
+			page: page,
+			row : row
+		},"post",function(data){
+			if (data.code == 200) {				
+				renderCodeList(data.data);          		
+	        }else if(data.code == 400){
+	        	toast(data.message);        	
+	        }else if(data.code == 401){
+	        	toast('请先登录');
+	        	/*setTimeout(function(){
+	        		window.location.href = './login.html';
+	        	},1000);  */      	
+	        }else{
+	            toast('参数错误');
+	        }
+		});	
 	}
+	
+	function renderCodeList(data){		
+		var html = '';		
+		$.each(data.rows,function(){
+		 html +=	'<li>'
+			+	'<div class="info">'
+			+		'<p class="title">提取金币：<span calss="number">'+this.number+'</span></p>'
+			+		'<p class="date">'+this.createTime+'</p>'
+			+	'</div>'
+			+	'<div class="status">'
+			+		this.stateFormatter
+			+	'</div>'
+			+'</li>';			
+			return html;
+		});
+		console.log(html);
+		$('.key-recode-ct ul').append(html);
+	}
+
+	
+
 
 
 	//数据
@@ -152,12 +148,22 @@
         'minDate': '1900-1-1', /*最小日期*/
         'maxDate': '2100-12-31', /*最大日期*/
         'onSubmit': function () {/*确认时触发事件*/
-            $(".time2").find("span").html(calendar2.value);
+        	if($(".time1").text() == '请选择开始日期'){
+        		toast('请先选择开始时间');
+        	}else{
+        		$(".time2").find("span").html(calendar2.value);
+        		var minTime = $('.time1').text();
+        		var maxTime = $('.time2').text()
+        		getKeyList(minTime,maxTime);
+        	}
+            
         },
         'onClose': function () {/*取消时触发事件*/
         }
     });
-    getEditActivityJson();
-</script>	
+   
+
+
+</script>		
 </body>
 </html>

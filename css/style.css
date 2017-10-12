@@ -84,6 +84,7 @@
 	line-height: 3.4rem;
 	background: #fff;
 	padding: 0 1.2rem;
+	overflow: hidden;
 }
 .news li a{
 	display: block;
@@ -588,9 +589,12 @@
 	font-size: 12px;
 }
 .money-recode-ct ul{
-	margin-top: 1rem;
+	/*margin-top: 1rem;*/
 	background: #fff;
 	font-size: 16px;
+}
+.money-recode-ct .time-ct{
+	margin-top: 1rem;
 }
 .money-recode-ct ul li{
 	padding: 0 1.5rem;
@@ -599,10 +603,8 @@
 }
 .money-recode-ct ul li .value{
 	font-size: 20px;
-<<<<<<< HEAD
 	color: #ec453e;
-=======
-	background: #ec453e;
+	
 }
 /*登录*/
 .login-ct ul li{

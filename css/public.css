@@ -372,3 +372,25 @@ html{
 	font-size: 14px;
 	margin-top: 1rem;
 }
+/*日历插件*/
+.time-ct{
+	height: 5rem;
+	line-height: 5rem;
+	padding: 0 1rem;
+	font-size: 16px;
+	background: #fff;
+}
+.time-ct{
+	display: flex;
+	justify-content:center;
+	text-align: center;
+}
+.time-ct .right-choose{
+	flex:1;
+}
+.time-ct .time-line{
+	width: 2rem;
+	height: 1px;
+	background: #333;
+	margin-top: 2.3rem;
+}
